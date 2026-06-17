@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>__TEAM_NAME__ · 数据看板</title>
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel-bg: transparent;
+      --panel-bg-strong: rgba(0,0,0,.28);
+      --glass-border: rgba(255,255,255,.28);
+      --border: rgba(255,255,255,.2); --text: #ffffff; --muted: #f0f4f8;
+      --accent: #ff6b2c; --accent2: #ff9a5c; --win: #34d399; --loss: #fb7185; --blue: #38bdf8;
+      --gold: #fbbf24; --radius: 16px;
+      --text-shadow: 0 1px 4px rgba(0,0,0,.9), 0 0 2px rgba(0,0,0,.8);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.5;
+      min-height: 100vh; position: relative;
+    }
+    .bg-slides {
+      position: fixed; inset: 0; z-index: 0; overflow: hidden;
+    }
+    .bg-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center top;
+      opacity: 0; transition: opacity 1.2s ease-in-out;
+      filter: brightness(1.05) saturate(1.15);
+    }
+    .bg-slide.active { opacity: 1; }
+    .bg-overlay { display: none; }
+    .wrap {
+      max-width: 760px; margin: 0 auto; padding: 16px 16px 40px;
+      position: relative; z-index: 2;
+    }
+    .wrap, .wrap h1, .wrap h2, .wrap .val, .wrap .pts, .wrap .bar-val, .wrap .score-cell {
+      text-shadow: var(--text-shadow);
+    }
+    .hero {
+      text-align: center; padding: 28px 16px 20px; margin-bottom: 16px;
+      border: 1px solid var(--glass-border); border-radius: 20px;
+      background: rgba(0,0,0,.28) center/cover no-repeat;
+      position: relative; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.15);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background: repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(255,255,255,.015) 48px, rgba(255,255,255,.015) 49px);
+    }
+    .hero-badge {
+      display: inline-block; font-size: .7rem; letter-spacing: .12em;
+      color: var(--accent2); border: 1px solid rgba(255,107,44,.35); border-radius: 999px;
+      padding: 4px 12px; margin-bottom: 10px; background: rgba(255,107,44,.08);
+      position: relative; z-index: 1;
+    }
+    .hero h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: .02em; position: relative; z-index: 1; }
+    .hero .sub { color: var(--muted); font-size: .82rem; margin-top: 6px; position: relative; z-index: 1; }
+    .hero .updated { color: var(--win); font-size: .72rem; margin-top: 4px; position: relative; z-index: 1; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+    @media (max-width: 480px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat {
+      background: rgba(0,0,0,.25); border: 1px solid var(--glass-border); border-radius: 14px;
+      padding: 14px 10px; text-align: center; transition: transform .2s, border-color .2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+    .stat:hover { transform: translateY(-2px); border-color: rgba(255,107,44,.25); }
+    .stat .lbl { font-size: .65rem; color: var(--muted); letter-spacing: .06em; }
+    .stat .val { font-size: 1.65rem; font-weight: 800; margin-top: 4px; font-variant-numeric: tabular-nums; }
+    .stat .val.win { color: var(--win); } .stat .val.loss { color: var(--loss); }
+    .stat .val.accent { color: var(--accent); }
+    .panel {
+      background: transparent; border: 1px solid var(--glass-border); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 14px;
+    }
+    .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .panel-head h2 { font-size: .88rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .panel-head h2::before {
+      content: ""; width: 4px; height: 14px; border-radius: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+    }
+    .tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      flex-shrink: 0; padding: 7px 14px; border-radius: 999px; font-size: .78rem; font-weight: 600;
+      border: 1px solid var(--glass-border); background: rgba(0,0,0,.25); color: var(--muted);
+      cursor: pointer; transition: all .2s;
+    }
+    .tab.active { border-color: var(--accent); color: #fff; background: linear-gradient(135deg, var(--accent), #e85d24); }
+    .tab.win-tag.active { background: linear-gradient(135deg, #059669, #34d399); border-color: transparent; }
+    .tab.loss-tag.active { background: linear-gradient(135deg, #be123c, #fb7185); border-color: transparent; }
+    .video-frame {
+      border-radius: 14px; overflow: hidden; background: #000;
+      border: 1px solid rgba(255,255,255,.1); box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    }
+    .video-frame video { width: 100%; max-height: min(52vw, 400px); display: block; background: #000; }
+    .video-placeholder {
+      min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; color: var(--muted); font-size: .88rem; background: linear-gradient(180deg, #111, #000);
+    }
+    .video-placeholder span { font-size: 2rem; opacity: .4; }
+    .btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .vbtn {
+      padding: 8px 16px; border-radius: 999px; border: 1px solid var(--glass-border);
+      background: rgba(0,0,0,.25); color: var(--muted); font-size: .78rem; font-weight: 600; cursor: pointer;
+      transition: all .2s; text-decoration: none; display: inline-flex; align-items: center;
+    }
+    .vbtn:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
+    .vbtn.on { border-color: transparent; color: #fff; background: linear-gradient(135deg, var(--accent), #e85d24); }
+    .vbtn.dl { border-color: rgba(56,189,248,.4); color: #7dd3fc; }
+    .vbtn.dl:hover { border-color: var(--blue); color: #fff; background: rgba(56,189,248,.15); }
+    .video-meta { color: var(--muted); font-size: .75rem; margin-top: 10px; line-height: 1.5; }
+    .legend { display: flex; gap: 16px; margin-bottom: 12px; font-size: .75rem; color: var(--muted); }
+    .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+    .bar-chart { display: flex; align-items: flex-end; gap: 8px; height: 200px; padding: 4px 0 8px; }
+    .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+    .bar-pair { display: flex; gap: 5px; align-items: flex-end; height: 160px; justify-content: center; }
+    .bar { width: 16px; border-radius: 6px 6px 2px 2px; min-height: 4px; transition: height .5s cubic-bezier(.34,1.56,.64,1); }
+    .bar.our { background: linear-gradient(180deg, var(--accent2), var(--accent)); }
+    .bar.opp { background: linear-gradient(180deg, #67c8ff, var(--blue)); }
+    .bar-val { font-size: .72rem; font-weight: 700; color: var(--text); }
+    .bar-label { font-size: .65rem; color: var(--muted); }
+    .h-bars { display: flex; flex-direction: column; gap: 10px; }
+    .h-row { display: grid; grid-template-columns: 64px 1fr 40px; gap: 10px; align-items: center; font-size: .82rem; }
+    .h-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .h-row .name.top1 { color: var(--gold); font-weight: 700; }
+    .h-track { background: rgba(255,255,255,.06); border-radius: 6px; height: 24px; overflow: hidden; }
+    .h-fill {
+      height: 100%; border-radius: 6px; min-width: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .6s cubic-bezier(.34,1.56,.64,1);
+    }
+    .h-row:nth-child(1) .h-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .table-wrap {
+      overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 12px;
+      border-radius: 10px; border: 1px solid var(--glass-border); position: relative;
+      background: transparent;
+    }
+    .table-hint { color: var(--accent2); font-size: .72rem; margin-top: 8px; }
+    .player-highlights { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .player-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,107,44,.35);
+      background: rgba(255,107,44,.1); color: var(--text); font-size: .78rem; font-weight: 600; cursor: pointer;
+    }
+    .player-chip:hover { background: rgba(255,107,44,.22); }
+    .player-chip .play { color: var(--accent2); font-size: .9rem; }
+    .player-table { width: 100%; border-collapse: collapse; font-size: .78rem; min-width: 480px; }
+    .player-table th, .player-table td { padding: 9px 8px; text-align: center; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    .player-table th { background: var(--panel-bg-strong); color: var(--muted); font-size: .68rem; position: sticky; top: 0; }
+    .player-table td:first-child, .player-table th:first-child {
+      text-align: left; position: sticky; left: 0;
+      background: var(--panel-bg-strong); z-index: 1;
+    }
+    .player-table th:first-child { z-index: 2; }
+    .player-table td.hl-col, .player-table th.hl-col {
+      position: sticky; right: 0;
+      background: var(--panel-bg-strong); z-index: 1;
+      box-shadow: -6px 0 10px rgba(0,0,0,.1);
+    }
+    .player-table th.hl-col { z-index: 3; color: var(--accent2); }
+    .player-table tr:last-child td { border-bottom: none; }
+    .player-table tr:hover td { background: rgba(255,255,255,.03); }
+    .player-table tr:hover td:first-child { background: rgba(0,0,0,.4); }
+    .player-table .pts { color: var(--accent2); font-weight: 700; }
+    .player-table .starter { color: var(--win); font-size: .7rem; }
+    .game-meta { color: var(--muted); font-size: .75rem; margin-top: 8px; line-height: 1.5; }
+    .hl-btn {
+      border: none; background: linear-gradient(135deg, var(--accent), #e85d24); color: #fff;
+      padding: 6px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(255,107,44,.35);
+    }
+    .hl-btn:hover { background: rgba(255,107,44,.28); }
+    .hl-dl-btn {
+      border: 1px solid rgba(56,189,248,.4); background: rgba(56,189,248,.12); color: #7dd3fc;
+      padding: 5px 8px; border-radius: 999px; font-size: .68rem; font-weight: 700; cursor: pointer;
+    }
+    .hl-dl-btn:hover { background: rgba(56,189,248,.25); color: #fff; }
+    .hl-actions { display: inline-flex; gap: 5px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .hl-none { color: var(--muted); font-size: .72rem; }
+    .modal {
+      position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.75);
+      display: flex; align-items: center; justify-content: center; padding: 16px;
+    }
+    .modal-inner {
+      width: min(100%, 640px); background: var(--panel-bg-strong); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .modal-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: .88rem; font-weight: 700;
+    }
+    .modal-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .modal-dl {
+      border: 1px solid rgba(56,189,248,.4); background: rgba(56,189,248,.12); color: #7dd3fc;
+      padding: 5px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; cursor: pointer;
+    }
+    .modal-dl:hover { background: rgba(56,189,248,.25); color: #fff; }
+    .modal-close {
+      border: none; background: transparent; color: var(--muted); font-size: 1.4rem; cursor: pointer; line-height: 1;
+    }
+    .modal video { width: 100%; display: block; background: #000; max-height: 50vh; }
+    .clip-list { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 14px 14px; }
+    .clip-chip {
+      border: 1px solid var(--border); background: var(--card2); color: var(--muted);
+      padding: 6px 12px; border-radius: 999px; font-size: .72rem; cursor: pointer;
+    }
+    .clip-chip.on { border-color: var(--accent); color: #fff; background: linear-gradient(135deg, var(--accent), #e85d24); }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: .72rem; letter-spacing: .04em; }
+    tr:hover td { background: rgba(255,255,255,.03); }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .7rem; font-weight: 700; }
+    .badge.win { background: rgba(52,211,153,.15); color: var(--win); }
+    .badge.loss { background: rgba(251,113,133,.15); color: var(--loss); }
+    .score-cell { font-weight: 700; font-variant-numeric: tabular-nums; }
+    footer { text-align: center; color: var(--muted); font-size: .72rem; margin-top: 20px; line-height: 1.8; opacity: .95; text-shadow: var(--text-shadow); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .anim { animation: fadeUp .5s ease both; }
+    .anim.d1 { animation-delay: .05s; } .anim.d2 { animation-delay: .1s; }
+    .anim.d3 { animation-delay: .15s; } .anim.d4 { animation-delay: .2s; }
+  </style>
+</head>
+<body>
+<div class="bg-slides" id="bgSlides">
+  <div class="bg-slide active" style="background-image:url('assets/bg/slamdunk.jpg')"></div>
+</div>
+<div class="bg-overlay"></div>
+<div class="wrap">
+  <header class="hero anim">
+    <div class="hero-badge">BASKETBALL DATA</div>
+    <h1>__TEAM_NAME__</h1>
+    <p class="sub">近 __GAME_COUNT__ 场战绩看板</p>
+    <p class="updated">更新于 __GEN_TIME__</p>
+  </header>
+
+  <div class="panel anim d1" id="videoPanel">
+    <div class="panel-head"><h2>比赛回放</h2></div>
+    <div class="tabs" id="videoTabs"></div>
+    <div class="video-frame" id="videoWrap" style="margin-top:12px">
+      <video id="mainVideo" controls playsinline webkit-playsinline preload="metadata"></video>
+    </div>
+    <div class="btn-row">
+      <button class="vbtn on" id="btnPlayback" type="button">全场回放</button>
+      <button class="vbtn" id="btnHighlight" type="button">球队集锦</button>
+      <button class="vbtn dl" id="btnDownload" type="button" style="display:none">↓ 下载视频</button>
+      <a class="vbtn" id="linkWoao" href="#" target="_blank" rel="noopener">我奥原页 ↗</a>
+    </div>
+    <p class="video-meta" id="videoMeta"></p>
+  </div>
+
+  <div class="stats anim d2">
+    <div class="stat"><div class="lbl">场次</div><div class="val">__GAME_COUNT__</div></div>
+    <div class="stat"><div class="lbl">胜</div><div class="val win">__WINS__</div></div>
+    <div class="stat"><div class="lbl">负</div><div class="val loss">__LOSSES__</div></div>
+    <div class="stat"><div class="lbl">胜率</div><div class="val accent">__WIN_PCT__%</div></div>
+  </div>
+
+  <div class="panel anim d3">
+    <div class="panel-head"><h2>比分走势</h2></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>我方</span><span><i style="background:var(--blue)"></i>对手</span></div>
+    <div class="bar-chart" id="scoreChart"></div>
+  </div>
+
+  <div class="panel anim d4">
+    <div class="panel-head"><h2>累计得分 TOP</h2></div>
+    <div class="h-bars" id="topChart"></div>
+  </div>
+
+  <div class="panel anim d4">
+    <div class="panel-head"><h2>单场球员数据</h2></div>
+    <div class="tabs" id="gameTabs"></div>
+    <p class="game-meta" id="gameMeta"></p>
+    <div class="player-highlights" id="playerHighlightChips"></div>
+    <p class="table-hint" id="tableHint">👇 表格最右侧可播放或下载个人集锦，或点上方球员胶囊</p>
+    <div class="table-wrap">
+      <table class="player-table">
+        <thead>
+          <tr>
+            <th>球员</th><th>得分</th><th>篮板</th><th>助攻</th><th>抢断</th>
+            <th>盖帽</th><th>失误</th><th>犯规</th><th>效率</th><th>首发</th><th class="hl-col">▶集锦</th>
+          </tr>
+        </thead>
+        <tbody id="playerTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel anim d4">
+    <div class="panel-head"><h2>比赛明细</h2></div>
+    <table>
+      <thead><tr><th>日期</th><th>比分</th><th>结果</th><th>得分王</th></tr></thead>
+      <tbody id="gameTable"></tbody>
+    </table>
+  </div>
+
+  <footer>__TEAM_NAME__ · 我奥篮球数据<br/>视频播放需联网 · 数据自动更新</footer>
+</div>
+
+<div class="modal" id="clipModal" style="display:none">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <span id="clipTitle">球员集锦</span>
+      <div class="modal-actions">
+        <button class="modal-dl" id="clipDownload" type="button">↓ 下载</button>
+        <button class="modal-close" id="clipClose" type="button">×</button>
+      </div>
+    </div>
+    <video id="clipVideo" controls playsinline webkit-playsinline preload="metadata"></video>
+    <div class="clip-list" id="clipList"></div>
+  </div>
+</div>
+<script>
+const DATA = __DATA_JSON__;
+const games = DATA.games;
+let videoIdx = games.length - 1;
+let videoMode = 'playback';
+let clipState = { clips: [], idx: 0, player: '', gameDate: '' };
+
+function safeFilename(s) {
+  return String(s || 'video').replace(/[\\/:*?"<>|\s]+/g, '_').slice(0, 60);
+}
+
+function downloadVideo(url, filename) {
+  if (!url) return;
+  const name = safeFilename(filename) + '.mp4';
+  const tip = '正在准备下载…若未自动保存，请在新页面长按视频选择保存';
+  fetch(url, { mode: 'cors' }).then(r => {
+    if (!r.ok) throw new Error('fetch failed');
+    return r.blob();
+  }).then(blob => {
+    const u = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = u;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(u), 2000);
+  }).catch(() => {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    if (/MicroMessenger|iPhone|iPad|Android/i.test(navigator.userAgent)) {
+      alert(tip);
+    }
+  });
+}
+
+function gameVideoUrl(g, mode) {
+  if (mode === 'highlight') return g.highlightUrl || null;
+  return g.playbackUrl || g.highlightUrl || null;
+}
+
+function renderVideo() {
+  const g = games[videoIdx];
+  const wrap = document.getElementById('videoWrap');
+  const meta = document.getElementById('videoMeta');
+  const link = document.getElementById('linkWoao');
+  let url = gameVideoUrl(g, videoMode);
+  let label = videoMode === 'highlight' ? '球队集锦' : (g.partName || '全场回放');
+  if (videoMode === 'playback' && !g.playbackUrl && g.highlightUrl) {
+    label = '本场无全场回放，已播放球队集锦';
+  }
+  link.href = 'https://m.lanqiu.woaoo.net/schedule/detail?scheduleId=' + g.scheduleId;
+  if (url) {
+    if (!wrap.querySelector('video')) {
+      wrap.innerHTML = '<video id="mainVideo" controls playsinline webkit-playsinline preload="metadata"></video>';
+    }
+    const v = document.getElementById('mainVideo');
+    v.onerror = () => {
+      const alt = videoMode === 'playback' && g.highlightUrl && v.src !== g.highlightUrl
+        ? g.highlightUrl
+        : (videoMode === 'highlight' && g.playbackUrl && v.src !== g.playbackUrl ? g.playbackUrl : null);
+      if (alt) {
+        v.src = alt;
+        v.load();
+        meta.innerHTML = '<strong>' + g.matchup + '</strong><br>原链接加载失败，已切换备用视频';
+      }
+    };
+    if (v.src !== url) { v.src = url; v.load(); }
+    if (g.coverUrl) v.poster = g.coverUrl;
+    meta.innerHTML = '<strong>' + g.matchup + '</strong><br>' + label;
+  } else {
+    wrap.innerHTML = '<div class="video-placeholder"><span>🏀</span>本场暂无' + (videoMode === 'highlight' ? '集锦' : '回放') + '<br><small style="opacity:.7;margin-top:6px">可点击下方「我奥原页」查看</small></div>';
+    meta.textContent = g.matchup;
+  }
+  document.getElementById('btnPlayback').classList.toggle('on', videoMode === 'playback');
+  document.getElementById('btnHighlight').classList.toggle('on', videoMode === 'highlight');
+  document.getElementById('btnPlayback').style.opacity = g.playbackUrl ? '1' : '.45';
+  document.getElementById('btnHighlight').style.opacity = g.highlightUrl ? '1' : '.45';
+  const dlBtn = document.getElementById('btnDownload');
+  if (url) {
+    dlBtn.style.display = 'inline-flex';
+    const tag = videoMode === 'highlight' ? '球队集锦' : (g.partName || '全场回放');
+    dlBtn.onclick = () => downloadVideo(url, g.date + '_' + tag);
+  } else {
+    dlBtn.style.display = 'none';
+  }
+}
+
+const videoTabs = document.getElementById('videoTabs');
+games.forEach((g, i) => {
+  const b = document.createElement('button');
+  b.className = 'tab' + (i === videoIdx ? ' active' : '') + (g.win ? ' win-tag' : ' loss-tag');
+  b.textContent = g.date.slice(5);
+  b.onclick = () => {
+    videoIdx = i;
+    document.querySelectorAll('#videoTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i));
+    renderVideo();
+  };
+  videoTabs.appendChild(b);
+});
+document.getElementById('btnPlayback').onclick = () => { videoMode = 'playback'; renderVideo(); };
+document.getElementById('btnHighlight').onclick = () => { videoMode = 'highlight'; renderVideo(); };
+renderVideo();
+
+function renderScoreChart() {
+  const max = Math.max(...games.flatMap(g => [g.ourScore, g.oppScore]), 1);
+  document.getElementById('scoreChart').innerHTML = games.map((g, i) => {
+    const h1 = Math.round(g.ourScore / max * 150);
+    const h2 = Math.round(g.oppScore / max * 150);
+    return `<div class="bar-group" style="animation:fadeUp .5s ease ${i*.06}s both"><div class="bar-pair">
+      <div class="bar our" style="height:${h1}px" title="我方 ${g.ourScore}"></div>
+      <div class="bar opp" style="height:${h2}px" title="对手 ${g.oppScore}"></div>
+    </div><div class="bar-val">${g.ourScore}:${g.oppScore}</div><div class="bar-label">${g.date.slice(5)}</div></div>`;
+  }).join('');
+}
+
+function renderHBars(containerId, items, labelKey, valueKey, maxVal) {
+  const max = maxVal || Math.max(...items.map(x => x[valueKey]), 1);
+  document.getElementById(containerId).innerHTML = items.map((x, i) =>
+    `<div class="h-row"><span class="name${i===0?' top1':''}">${x[labelKey]}</span>
+    <div class="h-track"><div class="h-fill" style="width:${Math.round(x[valueKey]/max*100)}%"></div></div>
+    <span>${x[valueKey]}</span></div>`
+  ).join('');
+}
+
+let activeIdx = games.length - 1;
+const gameTabs = document.getElementById('gameTabs');
+games.forEach((g, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'tab' + (i === activeIdx ? ' active' : '') + (g.win ? ' win-tag' : ' loss-tag');
+  btn.textContent = g.date.slice(5) + (g.win ? ' 胜' : ' 负');
+  btn.onclick = () => {
+    activeIdx = i;
+    document.querySelectorAll('#gameTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i));
+    renderPlayerTable();
+  };
+  gameTabs.appendChild(btn);
+});
+
+function renderPlayerTable() {
+  const g = games[activeIdx];
+  const list = g.players || g.topScorers || [];
+  const withHl = list.filter(p => p.highlightUrl);
+  document.getElementById('gameMeta').innerHTML =
+    '<strong>' + g.matchup + '</strong> · ' + g.ourScore + ':' + g.oppScore + (g.win ? ' 胜' : ' 负') +
+    ' · 共 ' + list.length + ' 人出场 · <span style="color:var(--accent2)">' + withHl.length + ' 人有个人集锦</span>';
+  document.getElementById('tableHint').style.display = withHl.length ? 'block' : 'none';
+  document.getElementById('playerHighlightChips').innerHTML = withHl.map(p => {
+    const idx = list.indexOf(p);
+    const n = p.highlightCount > 1 ? ' (' + p.highlightCount + ')' : '';
+    return `<button class="player-chip" type="button" data-idx="${activeIdx}" data-player="${idx}"><span class="play">▶</span>${p.球员}${n}</button>`;
+  }).join('');
+  document.querySelectorAll('.player-chip').forEach(btn => {
+    btn.onclick = () => openPlayerClips(+btn.dataset.idx, +btn.dataset.player);
+  });
+  document.getElementById('playerTable').innerHTML = list.map((p, i) => {
+    const hl = p.highlightUrl
+      ? `<span class="hl-actions"><button class="hl-btn" type="button" data-idx="${activeIdx}" data-player="${i}">播放${p.highlightCount > 1 ? '(' + p.highlightCount + ')' : ''}</button><button class="hl-dl-btn" type="button" data-idx="${activeIdx}" data-player="${i}">下载</button></span>`
+      : '<span class="hl-none">无</span>';
+    return `<tr>
+      <td>${p.球员}${i === 0 ? ' 🏆' : ''}</td>
+      <td class="pts">${p.得分}</td>
+      <td>${p.篮板 ?? '-'}</td>
+      <td>${p.助攻 ?? '-'}</td>
+      <td>${p.抢断 ?? '-'}</td>
+      <td>${p.盖帽 ?? '-'}</td>
+      <td>${p.失误 ?? '-'}</td>
+      <td>${p.犯规 ?? '-'}</td>
+      <td>${p.效率 ?? '-'}</td>
+      <td>${p.首发 ? '<span class="starter">✓</span>' : ''}</td>
+      <td class="hl-col">${hl}</td>
+    </tr>`;
+  }).join('');
+  document.querySelectorAll('.hl-btn').forEach(btn => {
+    btn.onclick = () => openPlayerClips(+btn.dataset.idx, +btn.dataset.player);
+  });
+  document.querySelectorAll('.hl-dl-btn').forEach(btn => {
+    btn.onclick = () => {
+      const g = games[+btn.dataset.idx];
+      const p = (g.players || g.topScorers || [])[+btn.dataset.player];
+      if (p && p.highlightUrl) {
+        downloadVideo(p.highlightUrl, g.date + '_' + p.球员 + '_个人集锦');
+      }
+    };
+  });
+}
+
+function openPlayerClips(gameIdx, playerIdx) {
+  const g = games[gameIdx];
+  const p = (g.players || g.topScorers || [])[playerIdx];
+  if (!p || !p.highlightUrl) return;
+  const clips = p.clips && p.clips.length ? p.clips : [{ name: p.highlightName || '集锦', url: p.highlightUrl, coverUrl: p.highlightCover }];
+  clipState = { clips, idx: 0, player: p.球员, gameDate: g.date };
+  document.getElementById('clipTitle').textContent = p.球员 + ' · ' + (p.highlightName || '个人集锦');
+  const video = document.getElementById('clipVideo');
+  const list = document.getElementById('clipList');
+  function playClip(idx) {
+    clipState.idx = idx;
+    const c = clips[idx];
+    video.src = c.url;
+    if (c.coverUrl) video.poster = c.coverUrl;
+    video.load();
+    list.querySelectorAll('.clip-chip').forEach((el, j) => el.classList.toggle('on', j === idx));
+  }
+  list.innerHTML = clips.map((c, i) =>
+    `<button class="clip-chip${i === 0 ? ' on' : ''}" type="button">${c.name || ('镜头' + (i + 1))}${c.duration ? ' · ' + c.duration + 's' : ''}</button>`
+  ).join('');
+  list.querySelectorAll('.clip-chip').forEach((el, i) => { el.onclick = () => playClip(i); });
+  playClip(0);
+  document.getElementById('clipModal').style.display = 'flex';
+}
+
+document.getElementById('clipDownload').onclick = () => {
+  const c = clipState.clips[clipState.idx];
+  if (!c) return;
+  const name = clipState.gameDate + '_' + clipState.player + '_' + (c.name || '镜头' + (clipState.idx + 1));
+  downloadVideo(c.url, name);
+};
+
+document.getElementById('clipClose').onclick = () => {
+  const modal = document.getElementById('clipModal');
+  modal.style.display = 'none';
+  const v = document.getElementById('clipVideo');
+  v.pause();
+  v.removeAttribute('src');
+};
+document.getElementById('clipModal').onclick = (e) => {
+  if (e.target.id === 'clipModal') document.getElementById('clipClose').click();
+};
+
+(function initBg() {
+  const slide = document.querySelector('.bg-slide.active');
+  const hero = document.querySelector('.hero');
+  if (slide && hero) {
+    const bg = slide.style.backgroundImage;
+    if (bg) hero.style.backgroundImage = bg;
+  }
+})();
+
+renderScoreChart();
+renderHBars('topChart', DATA.topPlayers.slice(0, 8), '球员', '得分');
+renderPlayerTable();
+
+const tbody = document.getElementById('gameTable');
+games.slice().reverse().forEach(g => {
+  const top = g.topScorers[0];
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${g.date.slice(5)}</td>
+    <td class="score-cell">${g.ourScore}:${g.oppScore}</td>
+    <td><span class="badge ${g.win?'win':'loss'}">${g.win?'胜':'负'}</span></td>
+    <td>${top ? top.球员 + ' <b>' + top.得分 + '</b>分' : '-'}</td>`;
+  tbody.appendChild(tr);
+});
+</script>
+</body>
+</html>

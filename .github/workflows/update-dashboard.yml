@@ -1,0 +1,40 @@
+name: 更新数据看板
+
+on:
+  schedule:
+    # 北京时间 10:00-23:00 每 2 小时检查一次（UTC 02:00-15:00 每 2h）
+    - cron: "0 2,4,6,8,10,12,14,15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: dashboard
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 拉取数据并生成看板
+        run: python publish_dashboard.py
+
+      - name: 部署到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          commit_message: "chore: 自动更新看板数据"

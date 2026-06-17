@@ -1,0 +1,28 @@
+{
+  "team_name": "中铁元湾篮球队",
+  "team_keyword": "中铁",
+  "team_aliases": ["浪里白条", "魔紫仙境"],
+  "competition_id": 14120,
+  "competition_url": "https://h5.woaolanqiu.cn/competition?competitionId=14120",
+  "league_id": 49868,
+  "season_id": 161248,
+  "team_id": 1266225,
+  "sample_schedule_id": 2306518,
+  "sample_schedule_url": "https://m.lanqiu.woaoo.net/schedule/detail?scheduleId=2306518",
+  "dashboard": {
+    "last_n_games": 5,
+    "schedule_keyword": "元湾",
+    "exclude_internal": true,
+    "min_date": "2026-05-01",
+    "year": null,
+    "focus_user_id": 324467,
+    "match_mode": "keyword"
+  },
+  "players": [
+    {
+      "name": "吴金潮",
+      "user_id": 324467,
+      "profile_url": "https://m.lanqiu.woaoo.net/user/detail?userId=324467"
+    }
+  ]
+}

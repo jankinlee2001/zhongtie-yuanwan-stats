@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 本地数据缓存（线上由 CI 生成）
+team_dashboard.csv
+team_last5.csv
+team_2026_*.csv
+team_schedules_*.csv
+schedule_*_players.csv
+video_cache.json
+
+# API 探测脚本（无需上线）
+probe_*.py
+scan_*.py
+find_*.py
+extract_*.py
+inspect_*.py
+search_*.py
+quick_probe.py
+diagnose_*.py
+split_webpack.py
+list_apis.py
+all_apis.py
+lanqiu_*.js
+comp_*.js
+request_*.js
+snip_*.js
+*.html.bak
+test_stats.csv
+team_last5.html
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# 保留 docs/ 用于本地预览；线上由 Actions 发布到 gh-pages 分支
+# docs/ 内容也会随 workflow 更新，可选择不提交 docs 到 main
