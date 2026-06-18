@@ -1,6 +1,7 @@
 """一键拉取数据并生成可部署的线上看板（docs/）。"""
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -24,6 +25,16 @@ ROOT = Path(__file__).resolve().parent
 CONFIG_PATH = ROOT / "team_config.json"
 CSV_PATH = ROOT / "team_dashboard.csv"
 DOCS_DIR = ROOT / "docs"
+TEAM_STATS_CACHE = ROOT / "team_stats_cache.json"
+
+
+def _load_team_stats_map() -> dict | None:
+    if not TEAM_STATS_CACHE.exists():
+        return None
+    try:
+        return json.loads(TEAM_STATS_CACHE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
 
 
 def _schedule_user_ids(df: pd.DataFrame, schedule_id: int) -> list[int]:
@@ -154,6 +165,7 @@ def main() -> int:
         team_keyword=team_keyword,
         video_map=video_map,
         player_highlight_map=player_highlight_map,
+        team_stats_map=_load_team_stats_map(),
     )
     try:
         from open_dashboard import mirror_to_home

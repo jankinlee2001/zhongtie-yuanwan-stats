@@ -1681,6 +1681,36 @@
           "首发": false
         }
       ],
+      "ourTeamStats": {
+        "得分": 113,
+        "两分命中率": 46.6,
+        "三分命中率": 21.7,
+        "篮板": 64,
+        "前板": 23,
+        "后板": 41,
+        "助攻": 25,
+        "抢断": 15,
+        "盖帽": 3,
+        "失误": 15,
+        "犯规": 19,
+        "罚球": "1/10",
+        "罚球命中率": 9.1
+      },
+      "oppTeamStats": {
+        "得分": 121,
+        "两分命中率": 50.0,
+        "三分命中率": 20.9,
+        "篮板": 83,
+        "前板": 29,
+        "后板": 54,
+        "助攻": 25,
+        "抢断": 7,
+        "盖帽": 3,
+        "失误": 22,
+        "犯规": 36,
+        "罚球": "2/4",
+        "罚球命中率": 33.3
+      },
       "playbackUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e4e385b95001834805517520338/f0.mp4",
       "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/46698df65001834805420710809/0a89d38a689955acdff6c712.mp4",
       "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/511e19345001834805410355146/coverBySnapshot/coverBySnapshot_10_0.jpg",
@@ -3251,6 +3281,36 @@
           "首发": false
         }
       ],
+      "ourTeamStats": {
+        "得分": 109,
+        "两分命中率": 44.2,
+        "三分命中率": 24.4,
+        "篮板": 71,
+        "前板": 31,
+        "后板": 40,
+        "助攻": 19,
+        "抢断": 6,
+        "盖帽": 0,
+        "失误": 21,
+        "犯规": 17,
+        "罚球": "0/8",
+        "罚球命中率": 0.0
+      },
+      "oppTeamStats": {
+        "得分": 120,
+        "两分命中率": 47.7,
+        "三分命中率": 33.3,
+        "篮板": 66,
+        "前板": 23,
+        "后板": 43,
+        "助攻": 28,
+        "抢断": 9,
+        "盖帽": 2,
+        "失误": 20,
+        "犯规": 22,
+        "罚球": "0/8",
+        "罚球命中率": 0.0
+      },
       "playbackUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b4aa3bcf5001834806286578496/f0.mp4",
       "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/57c8653a5001834806213554923/b8c6c0579c4efa6af02972d0.mp4",
       "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/bd2c333f5001834806204756852/coverBySnapshot/coverBySnapshot_10_0.jpg",
@@ -4803,6 +4863,36 @@
           "首发": false
         }
       ],
+      "ourTeamStats": {
+        "得分": 118,
+        "两分命中率": 40.5,
+        "三分命中率": 16.1,
+        "篮板": 92,
+        "前板": 29,
+        "后板": 63,
+        "助攻": 11,
+        "抢断": 9,
+        "盖帽": 3,
+        "失误": 21,
+        "犯规": 31,
+        "罚球": "1/15",
+        "罚球命中率": 6.2
+      },
+      "oppTeamStats": {
+        "得分": 120,
+        "两分命中率": 52.0,
+        "三分命中率": 11.4,
+        "篮板": 74,
+        "前板": 13,
+        "后板": 61,
+        "助攻": 20,
+        "抢断": 7,
+        "盖帽": 2,
+        "失误": 22,
+        "犯规": 36,
+        "罚球": "3/8",
+        "罚球命中率": 27.3
+      },
       "playbackUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/410f6ba15001834806912832844/f0.mp4",
       "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/a549ab085001834806968544534/247f8b52f0e529eca1dd4bcc.mp4",
       "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1d6808fb5001834806963246122/coverBySnapshot/coverBySnapshot_10_0.jpg",
@@ -6385,6 +6475,36 @@
           "首发": false
         }
       ],
+      "ourTeamStats": {
+        "得分": 106,
+        "两分命中率": 47.0,
+        "三分命中率": 14.8,
+        "篮板": 64,
+        "前板": 23,
+        "后板": 41,
+        "助攻": 18,
+        "抢断": 16,
+        "盖帽": 5,
+        "失误": 29,
+        "犯规": 17,
+        "罚球": "0/8",
+        "罚球命中率": 0.0
+      },
+      "oppTeamStats": {
+        "得分": 120,
+        "两分命中率": 48.6,
+        "三分命中率": 31.4,
+        "篮板": 67,
+        "前板": 25,
+        "后板": 42,
+        "助攻": 20,
+        "抢断": 10,
+        "盖帽": 3,
+        "失误": 30,
+        "犯规": 23,
+        "罚球": "0/4",
+        "罚球命中率": 0.0
+      },
       "playbackUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f77c51a95001834807327859419/f0.mp4",
       "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/520b25f45001834807206383230/a76a00cc77c79d194e1c4b0f.mp4",
       "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f08a4a965001834807192023840/coverBySnapshot/coverBySnapshot_10_0.jpg",
@@ -7591,6 +7711,36 @@
           "首发": false
         }
       ],
+      "ourTeamStats": {
+        "得分": 96,
+        "两分命中率": 60.0,
+        "三分命中率": 58.8,
+        "篮板": 31,
+        "前板": 9,
+        "后板": 22,
+        "助攻": 4,
+        "抢断": 0,
+        "盖帽": 1,
+        "失误": 4,
+        "犯规": 9,
+        "罚球": "0",
+        "罚球命中率": 0.0
+      },
+      "oppTeamStats": {
+        "得分": 130,
+        "两分命中率": 57.4,
+        "三分命中率": 50.0,
+        "篮板": 49,
+        "前板": 23,
+        "后板": 26,
+        "助攻": 16,
+        "抢断": 10,
+        "盖帽": 2,
+        "失误": 12,
+        "犯规": 4,
+        "罚球": "1/2",
+        "罚球命中率": 33.3
+      },
       "playbackUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/03b892c15001834807609058075/f0.mp4",
       "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/cd06dab45001834807503555031/5beae3934691aca017d62059.mp4",
       "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/774245d75001834807499682969/coverBySnapshot/coverBySnapshot_10_0.jpg",
@@ -7659,7 +7809,7 @@
   "wins": 0,
   "losses": 5,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-06-18 09:52",
+  "updatedAt": "2026-06-18 10:09",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",

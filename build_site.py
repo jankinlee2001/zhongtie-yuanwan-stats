@@ -39,10 +39,18 @@ def build_site(
     team_keyword: str | None = None,
     video_map: dict[int, dict] | None = None,
     player_highlight_map: dict[int, dict[int, dict]] | None = None,
+    team_stats_map: dict | None = None,
 ) -> Path:
     keyword = team_keyword or get_team_keyword()
     df = pd.read_csv(str(csv_path.resolve()), encoding="utf-8-sig", engine="python")
-    payload = build_payload(df, focus_user_id, team_keyword=keyword)
+    if team_stats_map is None:
+        cache_path = csv_path.with_name("team_stats_cache.json")
+        if cache_path.exists():
+            try:
+                team_stats_map = json.loads(cache_path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                team_stats_map = None
+    payload = build_payload(df, focus_user_id, team_keyword=keyword, team_stats_map=team_stats_map)
     schedule_ids = [g["scheduleId"] for g in payload["games"]]
     if video_map is None:
         cache = load_cache()

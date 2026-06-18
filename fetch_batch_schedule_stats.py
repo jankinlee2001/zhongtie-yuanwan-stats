@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-from fetch_schedule_stats import APPKEY, get_schedule_data, get_schedule_info, players_to_rows
+from fetch_schedule_stats import APPKEY, get_schedule_data, get_schedule_info, players_to_rows, team_stats_from_payload
 from team_utils import get_player_keywords, get_schedule_keyword, is_internal_match, is_our_internal_match, load_config, schedule_has_our_team
 
 GATEWAY = "https://gatewayapi.woaolanqiu.cn"
@@ -137,7 +137,7 @@ def collect_team_ids(schedules: list[dict], team_name: str | list[str]) -> set[i
     return ids
 
 
-def schedule_players_df(schedule_id: int) -> pd.DataFrame:
+def schedule_players_df(schedule_id: int) -> tuple[pd.DataFrame, dict[str, dict | None]]:
     info = get_schedule_info(schedule_id)
     payload = get_schedule_data(schedule_id)
     rows = players_to_rows(payload, "home") + players_to_rows(payload, "away")
@@ -145,19 +145,23 @@ def schedule_players_df(schedule_id: int) -> pd.DataFrame:
     df.insert(0, "scheduleId", schedule_id)
     df.insert(1, "比赛时间", info.get("matchTime"))
     df.insert(2, "对阵", f"{info.get('homeTeamName')} {info.get('homeTeamScore')}:{info.get('awayTeamScore')} {info.get('awayTeamName')}")
-    return df
+    return df, team_stats_from_payload(payload)
 
 
 def export_batch(
     schedule_ids: list[int],
     output: Path,
     user_id: int | None = None,
+    team_stats_path: Path | None = None,
 ) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
+    team_stats_map: dict[str, dict] = {}
     for sid in schedule_ids:
         print(f"拉取 scheduleId={sid} ...")
         try:
-            frames.append(schedule_players_df(sid))
+            df, stats = schedule_players_df(sid)
+            frames.append(df)
+            team_stats_map[str(sid)] = stats
         except Exception as exc:
             print(f"  跳过 {sid}: {exc}")
 
@@ -171,7 +175,10 @@ def export_batch(
     ]
     df = df[[c for c in cols if c in df.columns]]
     df.to_csv(output, index=False, encoding="utf-8-sig")
+    stats_out = team_stats_path or output.with_name("team_stats_cache.json")
+    stats_out.write_text(json.dumps(team_stats_map, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n共 {len(schedule_ids)} 场，合并 {len(df)} 条球员记录 -> {output}")
+    print(f"球队统计已保存 -> {stats_out}")
 
     if user_id is not None:
         hit = df[df["userId"] == user_id]

@@ -42,6 +42,46 @@ FIELD_MAP = {
 }
 
 
+def parse_pct(value) -> float | None:
+    if value is None or value == "":
+        return None
+    try:
+        return round(float(str(value).replace("%", "").strip()), 1)
+    except (TypeError, ValueError):
+        return None
+
+
+def team_stats_from_raw(raw: dict | None) -> dict | None:
+    """从 scheduleData 的 homeTeamStatistics / awayTeamStatistics 提取球队表现。"""
+    if not raw:
+        return None
+    ft_made = int(raw.get("y1") or 0)
+    ft_att = int(raw.get("x1") or 0)
+    ft_label = f"{ft_made}/{ft_att}" if ft_att else str(ft_made)
+    return {
+        "得分": int(raw.get("score") or 0),
+        "两分命中率": parse_pct(raw.get("pct2")),
+        "三分命中率": parse_pct(raw.get("pct3")),
+        "篮板": int(raw.get("rs") or 0),
+        "前板": int(raw.get("r0") or 0),
+        "后板": int(raw.get("r") or 0),
+        "助攻": int(raw.get("a") or 0),
+        "抢断": int(raw.get("s") or 0),
+        "盖帽": int(raw.get("b") or 0),
+        "失误": int(raw.get("t") or 0),
+        "犯规": int(raw.get("p") or 0),
+        "罚球": ft_label,
+        "罚球命中率": parse_pct(raw.get("pct1")),
+    }
+
+
+def team_stats_from_payload(payload: dict) -> dict[str, dict | None]:
+    return {
+        "home": team_stats_from_raw(payload.get("homeTeamStatistics")),
+        "away": team_stats_from_raw(payload.get("awayTeamStatistics")),
+    }
+
+
 def sign(params: dict) -> dict:
     p = dict(params)
     p["appkey"] = APPKEY

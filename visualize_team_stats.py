@@ -140,7 +140,12 @@ def _rows_to_players(rows: pd.DataFrame) -> list[dict]:
     return players
 
 
-def build_payload(df: pd.DataFrame, focus_user_id: int | None, team_keyword: str | None = None) -> dict:
+def build_payload(
+    df: pd.DataFrame,
+    focus_user_id: int | None,
+    team_keyword: str | None = None,
+    team_stats_map: dict | None = None,
+) -> dict:
     keywords = get_player_keywords() if team_keyword is None else get_player_keywords(
         {**load_config(), "team_keyword": team_keyword}
     )
@@ -197,8 +202,22 @@ def build_payload(df: pd.DataFrame, focus_user_id: int | None, team_keyword: str
         opp_rows = opp_rows_for_game(gdf, matchup, keywords, focus_user_id)
         players = _rows_to_players(our_rows)
         opp_players = _rows_to_players(opp_rows)
-        games.append(
-            {
+        our_team_stats = None
+        opp_team_stats = None
+        if team_stats_map:
+            raw = team_stats_map.get(str(sid)) or team_stats_map.get(int(sid)) or {}
+            home_stats = raw.get("home")
+            away_stats = raw.get("away")
+            side = resolve_our_side(matchup, keywords, gdf, focus_user_id) if matchup else None
+            if side == "主场":
+                our_team_stats, opp_team_stats = home_stats, away_stats
+            elif side == "客场":
+                our_team_stats, opp_team_stats = away_stats, home_stats
+            elif matchup and match_team_name(matchup[0], keywords):
+                our_team_stats, opp_team_stats = home_stats, away_stats
+            elif matchup and match_team_name(matchup[3], keywords):
+                our_team_stats, opp_team_stats = away_stats, home_stats
+        game_obj = {
                 "scheduleId": int(sid),
                 "date": str(row0["比赛时间"])[:10],
                 "matchup": str(row0["对阵"]),
@@ -211,7 +230,11 @@ def build_payload(df: pd.DataFrame, focus_user_id: int | None, team_keyword: str
                 "players": players,
                 "oppPlayers": opp_players,
             }
-        )
+        if our_team_stats:
+            game_obj["ourTeamStats"] = our_team_stats
+        if opp_team_stats:
+            game_obj["oppTeamStats"] = opp_team_stats
+        games.append(game_obj)
 
     games.sort(key=lambda x: x["date"])
 
