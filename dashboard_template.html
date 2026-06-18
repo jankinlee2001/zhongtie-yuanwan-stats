@@ -331,9 +331,12 @@
     }
     .podium-team { font-size: .62rem; color: var(--muted); margin-top: 2px; }
     .podium-eff {
-      font-size: .72rem; font-weight: 700; color: var(--gold); margin-top: 3px;
-      font-variant-numeric: tabular-nums;
+      font-size: .78rem; font-weight: 800; color: var(--gold); margin-top: 4px;
+      letter-spacing: .02em;
     }
+    .podium-slot.rank-1 .podium-eff { color: #fcd34d; font-size: .82rem; }
+    .podium-slot.rank-2 .podium-eff { color: #e5e7eb; }
+    .podium-slot.rank-3 .podium-eff { color: #fdba74; }
     .podium-block {
       width: 100%; border-radius: 10px 10px 0 0;
       display: flex; align-items: center; justify-content: center;
@@ -1380,7 +1383,7 @@ function topEfficiencyPlayers(players, limit) {
     .slice(0, limit);
 }
 
-const PODIUM_EFF_TITLES = { 1: '球场主宰', 2: '王牌核心', 3: '关键先生' };
+const PODIUM_EFF_TITLES = { 1: '天神下凡', 2: '举世无双', 3: '锋芒毕露' };
 
 function podiumSlotHtml(rank, player) {
   const medals = { 1: '🥇', 2: '🥈', 3: '🥉' };
