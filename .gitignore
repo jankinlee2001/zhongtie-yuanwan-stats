@@ -47,6 +47,7 @@ assets/*.m4a
 !assets/3519782731.mp3
 docs/assets/*.mp3
 docs/assets/*.m4a
+!docs/assets/3519782731.mp3
 3519782731.mp3
 
 # 保留 docs/ 用于本地预览；线上由 Actions 发布到 gh-pages 分支
