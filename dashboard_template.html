@@ -143,27 +143,24 @@
       gap: 8px; color: var(--muted); font-size: .88rem; background: linear-gradient(180deg, #111, #000);
     }
     .video-placeholder span { font-size: 2rem; opacity: .4; }
-    .bgm-widget {
-      margin-top: 14px; display: flex; flex-direction: column; align-items: center; gap: 8px;
-      width: min(100%, 320px); padding: 0 12px;
+    .bgm-fab {
+      position: fixed; right: 16px; bottom: 72px; z-index: 150;
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 1px solid rgba(255,154,92,.4);
+      background: rgba(10,15,24,.92); color: var(--accent2);
+      font-size: 1.15rem; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,.45);
+      display: none; align-items: center; justify-content: center;
+      transition: all .25s;
     }
-    .bgm-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(255,154,92,.35);
-      background: linear-gradient(135deg, rgba(255,107,44,.18), rgba(255,154,92,.08));
-      color: var(--accent2); font-size: .78rem; font-weight: 700; cursor: pointer;
-      transition: all .25s; max-width: 100%;
-    }
-    .bgm-btn:hover { border-color: rgba(255,154,92,.55); color: #fff; }
-    .bgm-btn.playing {
+    .bgm-fab.playing {
       border-color: transparent; color: #fff;
       background: linear-gradient(135deg, var(--accent), #e85d24);
-      box-shadow: 0 0 24px rgba(255,107,44,.35);
+      box-shadow: 0 0 24px rgba(255,107,44,.4);
+      animation: bgmPulse 1.2s ease-in-out infinite;
     }
-    .bgm-btn .note { font-size: 1rem; line-height: 1; }
-    .bgm-btn.playing .note { animation: bgmPulse 1.2s ease-in-out infinite; }
-    @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-    .bgm-hint { font-size: .68rem; color: rgba(255,255,255,.45); text-align: center; line-height: 1.4; }
+    .bgm-fab.off { opacity: .55; }
+    @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
     .btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .vbtn {
       padding: 8px 16px; border-radius: 999px; border: 1px solid var(--glass-border);
@@ -639,6 +636,7 @@
 </div>
 
 <audio id="bgmAudio" loop preload="metadata" style="display:none"></audio>
+<button type="button" class="bgm-fab" id="bgmFab" title="背景音乐" aria-label="背景音乐">🎵</button>
 
 <div class="dl-toast" id="dlToast">
   <span id="dlToastText">正在下载…</span>
@@ -692,76 +690,51 @@ const TOP_PLAYER_LIMIT = 8;
 const BGM = DATA.bgm || { enabled: false, url: '', title: '直到世界尽头', volume: 0.45 };
 let bgmWantsPlay = true;
 
-function placeholderBgmHtml() {
-  if (!BGM.enabled || !BGM.url) return '';
-  const title = BGM.title || '直到世界尽头';
-  return `<div class="bgm-widget" id="bgmWidget">
-    <button type="button" class="bgm-btn" id="bgmToggle"><span class="note">🎵</span><span id="bgmToggleText">播放 · ${title}</span></button>
-    <span class="bgm-hint" id="bgmHint">无回放时自动配乐 · 灌篮高手</span>
-  </div>`;
+function getMainVideoEl() { return document.getElementById('mainVideo'); }
+
+function isMainVideoPlaying() {
+  const v = getMainVideoEl();
+  return !!(v && v.currentSrc && !v.paused && !v.ended);
 }
 
-function getMainVideoEl() { return document.getElementById('mainVideo'); }
+function isClipVideoPlaying() {
+  const v = document.getElementById('clipVideo');
+  return !!(isClipModalOpen() && v && v.currentSrc && !v.paused && !v.ended);
+}
 
 function isClipModalOpen() {
   return document.getElementById('clipModal').style.display === 'flex';
 }
 
-function hasActiveMainVideoSource() {
-  const v = getMainVideoEl();
-  return !!(v && (v.currentSrc || v.src));
+function isAnyVideoPlaying() {
+  return isMainVideoPlaying() || isClipVideoPlaying();
 }
 
 function shouldBgmPlay() {
   if (!BGM.enabled || !BGM.url || !bgmWantsPlay) return false;
-  if (isClipModalOpen()) return false;
-  if (hasActiveMainVideoSource()) return false;
-  return true;
+  return !isAnyVideoPlaying();
 }
 
-function updateBgmButton(playing, needGesture) {
-  const btn = document.getElementById('bgmToggle');
-  const hint = document.getElementById('bgmHint');
-  const text = document.getElementById('bgmToggleText');
-  if (!btn) return;
-  btn.classList.toggle('playing', !!playing);
+function updateBgmFab(playing, needGesture) {
+  const fab = document.getElementById('bgmFab');
+  if (!fab) return;
+  fab.style.display = BGM.enabled && BGM.url ? 'flex' : 'none';
+  fab.classList.toggle('playing', !!playing);
+  fab.classList.toggle('off', !bgmWantsPlay);
   const title = BGM.title || '直到世界尽头';
-  if (text) text.textContent = playing ? ('播放中 · ' + title) : ('播放 · ' + title);
-  if (hint) {
-    hint.textContent = needGesture
-      ? '浏览器需点击按钮后才开始播放音乐'
-      : (playing ? '点击可暂停背景音乐' : '无回放时自动配乐 · 灌篮高手');
-  }
-}
-
-function bindBgmWidget() {
-  const btn = document.getElementById('bgmToggle');
-  if (!btn || btn._bgmBound) return;
-  btn._bgmBound = true;
-  btn.onclick = () => {
-    const audio = document.getElementById('bgmAudio');
-    if (!audio) return;
-    if (audio.paused) {
-      bgmWantsPlay = true;
-      audio.play().then(() => updateBgmButton(true, false)).catch(() => updateBgmButton(false, true));
-    } else {
-      bgmWantsPlay = false;
-      audio.pause();
-      updateBgmButton(false, false);
-    }
-  };
+  fab.title = playing ? (title + ' · 播放中，点击关闭') : (needGesture ? (title + ' · 点击播放') : (title + ' · 点击开启'));
 }
 
 function bindMainVideoBgm(v) {
   if (!v || v._bgmBound) return;
   v._bgmBound = true;
-  ['play', 'pause', 'ended', 'loadeddata', 'emptied'].forEach(ev => v.addEventListener(ev, syncBgm));
+  ['play', 'pause', 'ended', 'waiting'].forEach(ev => v.addEventListener(ev, syncBgm));
 }
 
 function bindClipVideoBgm(v) {
   if (!v || v._bgmBound) return;
   v._bgmBound = true;
-  ['play', 'pause', 'ended'].forEach(ev => v.addEventListener(ev, syncBgm));
+  ['play', 'pause', 'ended', 'waiting'].forEach(ev => v.addEventListener(ev, syncBgm));
 }
 
 function syncBgm() {
@@ -769,31 +742,49 @@ function syncBgm() {
   if (!audio || !BGM.enabled || !BGM.url) return;
   const want = shouldBgmPlay();
   if (!want) {
-    audio.pause();
-    updateBgmButton(false, false);
+    if (!audio.paused) audio.pause();
+    updateBgmFab(false, false);
     return;
   }
   if (!audio.paused) {
-    updateBgmButton(true, false);
+    updateBgmFab(true, false);
     return;
   }
   const playPromise = audio.play();
   if (playPromise && playPromise.then) {
-    playPromise.then(() => updateBgmButton(true, false)).catch(() => updateBgmButton(false, true));
+    playPromise.then(() => updateBgmFab(true, false)).catch(() => updateBgmFab(false, true));
   }
 }
 
 function initBgm() {
   const audio = document.getElementById('bgmAudio');
+  const fab = document.getElementById('bgmFab');
   if (!BGM.enabled || !BGM.url || !audio) return;
   audio.src = BGM.url;
   audio.volume = Math.min(1, Math.max(0, Number(BGM.volume) || 0.45));
-  audio.addEventListener('play', () => updateBgmButton(true, false));
-  audio.addEventListener('pause', () => {
-    if (shouldBgmPlay()) updateBgmButton(false, true);
-    else updateBgmButton(false, false);
-  });
+  audio.addEventListener('play', () => updateBgmFab(true, false));
+  audio.addEventListener('pause', () => updateBgmFab(false, shouldBgmPlay()));
   bindClipVideoBgm(document.getElementById('clipVideo'));
+  if (fab) {
+    fab.onclick = () => {
+      if (audio.paused && shouldBgmPlay()) {
+        bgmWantsPlay = true;
+        audio.play().then(() => updateBgmFab(true, false)).catch(() => updateBgmFab(false, true));
+      } else if (!audio.paused) {
+        bgmWantsPlay = false;
+        audio.pause();
+        updateBgmFab(false, false);
+      } else {
+        bgmWantsPlay = true;
+        syncBgm();
+      }
+    };
+  }
+  const unlock = () => syncBgm();
+  document.addEventListener('click', unlock, { once: true });
+  document.addEventListener('touchstart', unlock, { once: true, passive: true });
+  updateBgmFab(false, true);
+  syncBgm();
 }
 
 function safeFilename(s) {
@@ -935,8 +926,7 @@ function gameVideoUrl(g, mode) {
 function renderVideo() {
   if (!visibleGames.length) {
     document.getElementById('videoWrap').innerHTML =
-      '<div class="video-placeholder"><span>🏀</span>当前视角暂无比赛' + placeholderBgmHtml() + '</div>';
-    bindBgmWidget();
+      '<div class="video-placeholder"><span>🏀</span>当前视角暂无比赛</div>';
     document.getElementById('videoMeta').textContent = '';
     document.getElementById('btnSaveVideo').style.display = 'none';
     syncBgm();
@@ -974,8 +964,7 @@ function renderVideo() {
     syncBgm();
   } else {
     wrap.innerHTML = '<div class="video-placeholder"><span>🏀</span>本场暂无' + (videoMode === 'highlight' ? '集锦' : '回放') +
-      '<br><small style="opacity:.7;margin-top:6px">可点击下方「我奥原页」查看</small>' + placeholderBgmHtml() + '</div>';
-    bindBgmWidget();
+      '<br><small style="opacity:.7;margin-top:6px">可点击下方「我奥原页」查看</small></div>';
     meta.textContent = g.matchup;
     syncBgm();
   }
@@ -1572,6 +1561,7 @@ function openPlayerClips(gameIdx, playerIdx) {
   };
   playClip(0);
   document.getElementById('clipModal').style.display = 'flex';
+  bindClipVideoBgm(video);
   syncBgm();
 }
 
