@@ -1380,6 +1380,8 @@ function topEfficiencyPlayers(players, limit) {
     .slice(0, limit);
 }
 
+const PODIUM_EFF_TITLES = { 1: '球场主宰', 2: '王牌核心', 3: '关键先生' };
+
 function podiumSlotHtml(rank, player) {
   const medals = { 1: '🥇', 2: '🥈', 3: '🥉' };
   if (!player) {
@@ -1393,7 +1395,7 @@ function podiumSlotHtml(rank, player) {
       ${podiumAvatarHtml(player)}
       <div class="podium-name">${player.球员}</div>
       <div class="podium-team">${shortTeamName(player._team)}</div>
-      <div class="podium-eff">效率 ${numStat(player, '效率')}</div>
+      <div class="podium-eff">${PODIUM_EFF_TITLES[rank] || ''}</div>
     </div>
     <div class="podium-block"><span class="podium-rank">${medals[rank]}</span></div>
   </div>`;
