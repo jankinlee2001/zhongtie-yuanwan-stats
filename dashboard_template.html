@@ -143,24 +143,28 @@
       gap: 8px; color: var(--muted); font-size: .88rem; background: linear-gradient(180deg, #111, #000);
     }
     .video-placeholder span { font-size: 2rem; opacity: .4; }
-    .bgm-fab {
-      position: fixed; right: 16px; bottom: 72px; z-index: 150;
-      width: 46px; height: 46px; border-radius: 50%;
-      border: 1px solid rgba(255,154,92,.4);
-      background: rgba(10,15,24,.92); color: var(--accent2);
-      font-size: 1.15rem; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(0,0,0,.45);
-      display: none; align-items: center; justify-content: center;
-      transition: all .25s;
+    .bgm-strip {
+      display: none; margin-bottom: 14px; padding: 12px 14px;
+      border-radius: var(--radius); border: 1px solid rgba(255,154,92,.35);
+      background: linear-gradient(135deg, rgba(255,107,44,.16), rgba(255,154,92,.06));
+      animation: fadeUp .5s ease both;
     }
-    .bgm-fab.playing {
+    .bgm-strip-btn {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,154,92,.45);
+      background: rgba(0,0,0,.35); color: var(--accent2);
+      font-size: .86rem; font-weight: 700; cursor: pointer; transition: all .25s;
+    }
+    .bgm-strip-btn .bgm-icon { font-size: 1.1rem; line-height: 1; }
+    .bgm-strip.playing .bgm-strip-btn {
       border-color: transparent; color: #fff;
       background: linear-gradient(135deg, var(--accent), #e85d24);
-      box-shadow: 0 0 24px rgba(255,107,44,.4);
-      animation: bgmPulse 1.2s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255,107,44,.35);
     }
-    .bgm-fab.off { opacity: .55; }
-    @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .bgm-strip.playing .bgm-icon { animation: bgmPulse 1.2s ease-in-out infinite; }
+    .bgm-strip-hint { display: block; margin-top: 8px; font-size: .68rem; color: var(--muted); text-align: center; }
+    .bgm-strip.off .bgm-strip-btn { opacity: .65; }
+    @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     .btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .vbtn {
       padding: 8px 16px; border-radius: 999px; border: 1px solid var(--glass-border);
@@ -551,6 +555,14 @@
     <p class="updated">更新于 __GEN_TIME__</p>
   </header>
 
+  <div class="bgm-strip" id="bgmStrip">
+    <button type="button" class="bgm-strip-btn" id="bgmBar">
+      <span class="bgm-icon">🎵</span>
+      <span id="bgmLabel">直到世界尽头 · 点击播放</span>
+    </button>
+    <span class="bgm-strip-hint" id="bgmStripHint">浏览看板时配乐 · 播放视频时自动暂停</span>
+  </div>
+
   <div class="panel anim perspective-panel">
     <div class="panel-head"><h2>统计视角</h2></div>
     <div class="tabs" id="perspectiveTabs"></div>
@@ -635,8 +647,7 @@
   <footer>__TEAM_NAME__ · 我奥篮球数据<br/>视频播放需联网 · 数据自动更新</footer>
 </div>
 
-<audio id="bgmAudio" loop preload="metadata" style="display:none"></audio>
-<button type="button" class="bgm-fab" id="bgmFab" title="背景音乐" aria-label="背景音乐">🎵</button>
+<audio id="bgmAudio" loop preload="auto" playsinline style="display:none"></audio>
 
 <div class="dl-toast" id="dlToast">
   <span id="dlToastText">正在下载…</span>
@@ -715,14 +726,46 @@ function shouldBgmPlay() {
   return !isAnyVideoPlaying();
 }
 
-function updateBgmFab(playing, needGesture) {
-  const fab = document.getElementById('bgmFab');
-  if (!fab) return;
-  fab.style.display = BGM.enabled && BGM.url ? 'flex' : 'none';
-  fab.classList.toggle('playing', !!playing);
-  fab.classList.toggle('off', !bgmWantsPlay);
+function updateBgmUi(playing, needTap) {
+  const strip = document.getElementById('bgmStrip');
+  const label = document.getElementById('bgmLabel');
+  const hint = document.getElementById('bgmStripHint');
+  if (!strip) return;
+  const show = BGM.enabled && BGM.url;
+  strip.style.display = show ? 'block' : 'none';
+  if (!show) return;
   const title = BGM.title || '直到世界尽头';
-  fab.title = playing ? (title + ' · 播放中，点击关闭') : (needGesture ? (title + ' · 点击播放') : (title + ' · 点击开启'));
+  strip.classList.toggle('playing', !!playing);
+  strip.classList.toggle('off', !bgmWantsPlay && !playing);
+  if (label) {
+    label.textContent = playing
+      ? (title + ' · 播放中')
+      : (needTap ? (title + ' · 点击播放') : (title + ' · 点击开启'));
+  }
+  if (hint) {
+    hint.textContent = playing
+      ? '播放比赛视频时将自动暂停音乐'
+      : (needTap ? '微信/手机需点击上方按钮开始播放' : '浏览看板时配乐 · 播放视频时自动暂停');
+  }
+}
+
+function toggleBgmFromUser() {
+  const audio = document.getElementById('bgmAudio');
+  if (!audio || !BGM.enabled || !BGM.url) return;
+  if (!audio.paused) {
+    bgmWantsPlay = false;
+    audio.pause();
+    updateBgmUi(false, false);
+    return;
+  }
+  bgmWantsPlay = true;
+  if (isAnyVideoPlaying()) {
+    updateBgmUi(false, false);
+    return;
+  }
+  audio.play()
+    .then(() => updateBgmUi(true, false))
+    .catch(() => updateBgmUi(false, true));
 }
 
 function bindMainVideoBgm(v) {
@@ -743,47 +786,33 @@ function syncBgm() {
   const want = shouldBgmPlay();
   if (!want) {
     if (!audio.paused) audio.pause();
-    updateBgmFab(false, false);
+    updateBgmUi(false, false);
     return;
   }
   if (!audio.paused) {
-    updateBgmFab(true, false);
+    updateBgmUi(true, false);
     return;
   }
   const playPromise = audio.play();
   if (playPromise && playPromise.then) {
-    playPromise.then(() => updateBgmFab(true, false)).catch(() => updateBgmFab(false, true));
+    playPromise.then(() => updateBgmUi(true, false)).catch(() => updateBgmUi(false, true));
   }
 }
 
 function initBgm() {
   const audio = document.getElementById('bgmAudio');
-  const fab = document.getElementById('bgmFab');
-  if (!BGM.enabled || !BGM.url || !audio) return;
+  const bar = document.getElementById('bgmBar');
+  if (!BGM.enabled || !BGM.url || !audio) {
+    updateBgmUi(false, false);
+    return;
+  }
   audio.src = BGM.url;
   audio.volume = Math.min(1, Math.max(0, Number(BGM.volume) || 0.45));
-  audio.addEventListener('play', () => updateBgmFab(true, false));
-  audio.addEventListener('pause', () => updateBgmFab(false, shouldBgmPlay()));
+  audio.addEventListener('play', () => updateBgmUi(true, false));
+  audio.addEventListener('pause', () => updateBgmUi(false, shouldBgmPlay()));
   bindClipVideoBgm(document.getElementById('clipVideo'));
-  if (fab) {
-    fab.onclick = () => {
-      if (audio.paused && shouldBgmPlay()) {
-        bgmWantsPlay = true;
-        audio.play().then(() => updateBgmFab(true, false)).catch(() => updateBgmFab(false, true));
-      } else if (!audio.paused) {
-        bgmWantsPlay = false;
-        audio.pause();
-        updateBgmFab(false, false);
-      } else {
-        bgmWantsPlay = true;
-        syncBgm();
-      }
-    };
-  }
-  const unlock = () => syncBgm();
-  document.addEventListener('click', unlock, { once: true });
-  document.addEventListener('touchstart', unlock, { once: true, passive: true });
-  updateBgmFab(false, true);
+  if (bar) bar.onclick = toggleBgmFromUser;
+  updateBgmUi(false, true);
   syncBgm();
 }
 
