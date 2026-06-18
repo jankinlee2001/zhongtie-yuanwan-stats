@@ -143,6 +143,27 @@
       gap: 8px; color: var(--muted); font-size: .88rem; background: linear-gradient(180deg, #111, #000);
     }
     .video-placeholder span { font-size: 2rem; opacity: .4; }
+    .bgm-widget {
+      margin-top: 14px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      width: min(100%, 320px); padding: 0 12px;
+    }
+    .bgm-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(255,154,92,.35);
+      background: linear-gradient(135deg, rgba(255,107,44,.18), rgba(255,154,92,.08));
+      color: var(--accent2); font-size: .78rem; font-weight: 700; cursor: pointer;
+      transition: all .25s; max-width: 100%;
+    }
+    .bgm-btn:hover { border-color: rgba(255,154,92,.55); color: #fff; }
+    .bgm-btn.playing {
+      border-color: transparent; color: #fff;
+      background: linear-gradient(135deg, var(--accent), #e85d24);
+      box-shadow: 0 0 24px rgba(255,107,44,.35);
+    }
+    .bgm-btn .note { font-size: 1rem; line-height: 1; }
+    .bgm-btn.playing .note { animation: bgmPulse 1.2s ease-in-out infinite; }
+    @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    .bgm-hint { font-size: .68rem; color: rgba(255,255,255,.45); text-align: center; line-height: 1.4; }
     .btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .vbtn {
       padding: 8px 16px; border-radius: 999px; border: 1px solid var(--glass-border);
@@ -617,6 +638,8 @@
   <footer>__TEAM_NAME__ · 我奥篮球数据<br/>视频播放需联网 · 数据自动更新</footer>
 </div>
 
+<audio id="bgmAudio" loop preload="metadata" style="display:none"></audio>
+
 <div class="dl-toast" id="dlToast">
   <span id="dlToastText">正在下载…</span>
   <div class="bar"><div class="fill" id="dlToastFill"></div></div>
@@ -666,6 +689,112 @@ let clipState = { clips: [], idx: 0, player: '', gameDate: '', scheduleId: null 
 let activeIdx = 0;
 let activeSide = 'our';
 const TOP_PLAYER_LIMIT = 8;
+const BGM = DATA.bgm || { enabled: false, url: '', title: '直到世界尽头', volume: 0.45 };
+let bgmWantsPlay = true;
+
+function placeholderBgmHtml() {
+  if (!BGM.enabled || !BGM.url) return '';
+  const title = BGM.title || '直到世界尽头';
+  return `<div class="bgm-widget" id="bgmWidget">
+    <button type="button" class="bgm-btn" id="bgmToggle"><span class="note">🎵</span><span id="bgmToggleText">播放 · ${title}</span></button>
+    <span class="bgm-hint" id="bgmHint">无回放时自动配乐 · 灌篮高手</span>
+  </div>`;
+}
+
+function getMainVideoEl() { return document.getElementById('mainVideo'); }
+
+function isClipModalOpen() {
+  return document.getElementById('clipModal').style.display === 'flex';
+}
+
+function hasActiveMainVideoSource() {
+  const v = getMainVideoEl();
+  return !!(v && (v.currentSrc || v.src));
+}
+
+function shouldBgmPlay() {
+  if (!BGM.enabled || !BGM.url || !bgmWantsPlay) return false;
+  if (isClipModalOpen()) return false;
+  if (hasActiveMainVideoSource()) return false;
+  return true;
+}
+
+function updateBgmButton(playing, needGesture) {
+  const btn = document.getElementById('bgmToggle');
+  const hint = document.getElementById('bgmHint');
+  const text = document.getElementById('bgmToggleText');
+  if (!btn) return;
+  btn.classList.toggle('playing', !!playing);
+  const title = BGM.title || '直到世界尽头';
+  if (text) text.textContent = playing ? ('播放中 · ' + title) : ('播放 · ' + title);
+  if (hint) {
+    hint.textContent = needGesture
+      ? '浏览器需点击按钮后才开始播放音乐'
+      : (playing ? '点击可暂停背景音乐' : '无回放时自动配乐 · 灌篮高手');
+  }
+}
+
+function bindBgmWidget() {
+  const btn = document.getElementById('bgmToggle');
+  if (!btn || btn._bgmBound) return;
+  btn._bgmBound = true;
+  btn.onclick = () => {
+    const audio = document.getElementById('bgmAudio');
+    if (!audio) return;
+    if (audio.paused) {
+      bgmWantsPlay = true;
+      audio.play().then(() => updateBgmButton(true, false)).catch(() => updateBgmButton(false, true));
+    } else {
+      bgmWantsPlay = false;
+      audio.pause();
+      updateBgmButton(false, false);
+    }
+  };
+}
+
+function bindMainVideoBgm(v) {
+  if (!v || v._bgmBound) return;
+  v._bgmBound = true;
+  ['play', 'pause', 'ended', 'loadeddata', 'emptied'].forEach(ev => v.addEventListener(ev, syncBgm));
+}
+
+function bindClipVideoBgm(v) {
+  if (!v || v._bgmBound) return;
+  v._bgmBound = true;
+  ['play', 'pause', 'ended'].forEach(ev => v.addEventListener(ev, syncBgm));
+}
+
+function syncBgm() {
+  const audio = document.getElementById('bgmAudio');
+  if (!audio || !BGM.enabled || !BGM.url) return;
+  const want = shouldBgmPlay();
+  if (!want) {
+    audio.pause();
+    updateBgmButton(false, false);
+    return;
+  }
+  if (!audio.paused) {
+    updateBgmButton(true, false);
+    return;
+  }
+  const playPromise = audio.play();
+  if (playPromise && playPromise.then) {
+    playPromise.then(() => updateBgmButton(true, false)).catch(() => updateBgmButton(false, true));
+  }
+}
+
+function initBgm() {
+  const audio = document.getElementById('bgmAudio');
+  if (!BGM.enabled || !BGM.url || !audio) return;
+  audio.src = BGM.url;
+  audio.volume = Math.min(1, Math.max(0, Number(BGM.volume) || 0.45));
+  audio.addEventListener('play', () => updateBgmButton(true, false));
+  audio.addEventListener('pause', () => {
+    if (shouldBgmPlay()) updateBgmButton(false, true);
+    else updateBgmButton(false, false);
+  });
+  bindClipVideoBgm(document.getElementById('clipVideo'));
+}
 
 function safeFilename(s) {
   return String(s || 'video').replace(/[\\/:*?"<>|\s]+/g, '_').slice(0, 60);
@@ -805,9 +934,12 @@ function gameVideoUrl(g, mode) {
 
 function renderVideo() {
   if (!visibleGames.length) {
-    document.getElementById('videoWrap').innerHTML = '<div class="video-placeholder"><span>🏀</span>当前视角暂无比赛</div>';
+    document.getElementById('videoWrap').innerHTML =
+      '<div class="video-placeholder"><span>🏀</span>当前视角暂无比赛' + placeholderBgmHtml() + '</div>';
+    bindBgmWidget();
     document.getElementById('videoMeta').textContent = '';
     document.getElementById('btnSaveVideo').style.display = 'none';
+    syncBgm();
     return;
   }
   const g = visibleGames[videoIdx];
@@ -825,6 +957,7 @@ function renderVideo() {
       wrap.innerHTML = '<video id="mainVideo" controls playsinline webkit-playsinline preload="metadata"></video>';
     }
     const v = document.getElementById('mainVideo');
+    bindMainVideoBgm(v);
     v.onerror = () => {
       const alt = videoMode === 'playback' && g.highlightUrl && v.src !== g.highlightUrl
         ? g.highlightUrl
@@ -838,9 +971,13 @@ function renderVideo() {
     if (v.src !== url) { v.src = normalizeVideoUrl(url); v.load(); }
     if (g.coverUrl) v.poster = g.coverUrl;
     meta.innerHTML = '<strong>' + g.matchup + '</strong><br>' + label;
+    syncBgm();
   } else {
-    wrap.innerHTML = '<div class="video-placeholder"><span>🏀</span>本场暂无' + (videoMode === 'highlight' ? '集锦' : '回放') + '<br><small style="opacity:.7;margin-top:6px">可点击下方「我奥原页」查看</small></div>';
+    wrap.innerHTML = '<div class="video-placeholder"><span>🏀</span>本场暂无' + (videoMode === 'highlight' ? '集锦' : '回放') +
+      '<br><small style="opacity:.7;margin-top:6px">可点击下方「我奥原页」查看</small>' + placeholderBgmHtml() + '</div>';
+    bindBgmWidget();
     meta.textContent = g.matchup;
+    syncBgm();
   }
   document.getElementById('btnPlayback').classList.toggle('on', videoMode === 'playback');
   document.getElementById('btnHighlight').classList.toggle('on', videoMode === 'highlight');
@@ -1435,6 +1572,7 @@ function openPlayerClips(gameIdx, playerIdx) {
   };
   playClip(0);
   document.getElementById('clipModal').style.display = 'flex';
+  syncBgm();
 }
 
 document.getElementById('clipDownload').onclick = () => {
@@ -1456,6 +1594,7 @@ document.getElementById('clipClose').onclick = () => {
   const v = document.getElementById('clipVideo');
   v.pause();
   v.removeAttribute('src');
+  syncBgm();
 };
 document.getElementById('clipModal').onclick = (e) => {
   if (e.target.id === 'clipModal') document.getElementById('clipClose').click();
@@ -1498,6 +1637,7 @@ function renderGameTable() {
   });
 }
 
+initBgm();
 applyPerspective();
 </script>
 </body>

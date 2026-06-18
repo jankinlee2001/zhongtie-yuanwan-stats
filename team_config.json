@@ -18,6 +18,13 @@
     "focus_user_id": 324467,
     "match_mode": "keyword"
   },
+  "bgm": {
+    "enabled": true,
+    "source": "assets/3519782731.mp3",
+    "url": "assets/3519782731.mp3",
+    "title": "直到世界尽头",
+    "volume": 0.45
+  },
   "players": [
     {
       "name": "吴金潮",

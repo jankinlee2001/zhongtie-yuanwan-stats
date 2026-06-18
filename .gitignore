@@ -41,5 +41,13 @@ team_last5.html
 Thumbs.db
 .DS_Store
 
+# 背景音乐（请自行准备 MP3，勿提交受版权保护的文件）
+assets/*.mp3
+assets/*.m4a
+!assets/3519782731.mp3
+docs/assets/*.mp3
+docs/assets/*.m4a
+3519782731.mp3
+
 # 保留 docs/ 用于本地预览；线上由 Actions 发布到 gh-pages 分支
 # docs/ 内容也会随 workflow 更新，可选择不提交 docs 到 main

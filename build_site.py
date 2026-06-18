@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -14,6 +15,28 @@ from video_cache import load_cache, player_map_from_cache, video_map_from_cache
 from visualize_team_stats import build_payload, render_dashboard_html
 
 DOCS_DIR = Path("docs")
+
+
+def _prepare_bgm(cfg: dict, output_dir: Path) -> dict:
+    """复制本地 BGM 到站点目录，并写入 payload（无视频占位时播放）。"""
+    bgm_cfg = cfg.get("bgm") or {}
+    if not bgm_cfg.get("enabled", False):
+        return {"enabled": False}
+    url = str(bgm_cfg.get("url") or "assets/until-the-end.mp3").lstrip("/")
+    src = Path(bgm_cfg.get("source") or url)
+    if src.exists():
+        dest = output_dir / url
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        print(f"BGM 已复制 -> {dest.resolve()}")
+    elif not (output_dir / url).exists():
+        print(f"提示: 未找到 BGM 文件 {src.resolve()}，请将 MP3 放到该路径后重新生成看板")
+    return {
+        "enabled": True,
+        "url": url,
+        "title": bgm_cfg.get("title") or "直到世界尽头",
+        "volume": float(bgm_cfg.get("volume", 0.45)),
+    }
 
 
 def _perspective_teams(cfg: dict) -> list[dict]:
@@ -80,9 +103,10 @@ def build_site(
     payload["updatedAt"] = datetime.now().strftime("%Y-%m-%d %H:%M")
     cfg = load_config()
     payload["perspectiveTeams"] = _perspective_teams(cfg)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    payload["bgm"] = _prepare_bgm(cfg, output_dir)
     normalize_payload_media(payload)
 
-    output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "data.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )

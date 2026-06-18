@@ -7809,7 +7809,7 @@
   "wins": 0,
   "losses": 5,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-06-18 10:09",
+  "updatedAt": "2026-06-18 10:44",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",
@@ -7831,5 +7831,11 @@
       "label": "季中赛2队",
       "keyword": "季中赛2队"
     }
-  ]
+  ],
+  "bgm": {
+    "enabled": true,
+    "url": "assets/3519782731.mp3",
+    "title": "直到世界尽头",
+    "volume": 0.45
+  }
 }
