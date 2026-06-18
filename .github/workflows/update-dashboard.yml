@@ -1,6 +1,9 @@
 name: 更新数据看板
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # 北京时间 10:00-23:00 每 2 小时（UTC 02,04,06,08,10,12,14,15）
     - cron: "0 2,4,6,8,10,12,14,15 * * *"
@@ -41,4 +44,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          publish_branch: gh-pages
           commit_message: "chore: 自动更新看板数据"
