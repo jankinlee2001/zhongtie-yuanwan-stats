@@ -262,9 +262,17 @@ _TEMPLATE_PATH = Path(__file__).resolve().parent / "dashboard_template.html"
 def _load_template() -> str:
     return _TEMPLATE_PATH.read_text(encoding="utf-8")
 
-def render_dashboard_html(payload: dict, team_name: str = "中铁元湾篮球队") -> str:
+def render_dashboard_html(payload: dict, team_name: str = "中铁元湾篮球队", share: dict | None = None) -> str:
     win_pct = round(payload["wins"] / payload["gameCount"] * 100) if payload["gameCount"] else 0
     updated = payload.get("updatedAt") or datetime.now().strftime("%Y-%m-%d %H:%M")
+    share = share or payload.get("share") or {}
+    og_title = share.get("title") or f"{team_name} · 数据看板"
+    gc = payload.get("gameCount") or 0
+    og_desc = share.get("description") or (
+        f"近{gc}场 {payload.get('wins', 0)}胜{payload.get('losses', 0)}负 · 胜率{win_pct}% · 比分走势、回放与球员数据"
+    )
+    og_image = share.get("image") or ""
+    og_url = share.get("url") or ""
     html = _load_template()
     html = html.replace("__TEAM_NAME__", team_name)
     html = html.replace("__GAME_COUNT__", str(payload["gameCount"]))
@@ -272,6 +280,10 @@ def render_dashboard_html(payload: dict, team_name: str = "中铁元湾篮球队
     html = html.replace("__LOSSES__", str(payload["losses"]))
     html = html.replace("__WIN_PCT__", str(win_pct))
     html = html.replace("__GEN_TIME__", updated)
+    html = html.replace("__OG_TITLE__", og_title)
+    html = html.replace("__OG_DESC__", og_desc)
+    html = html.replace("__OG_IMAGE__", og_image)
+    html = html.replace("__OG_URL__", og_url)
     html = html.replace("__CACHE_VER__", datetime.now().strftime("%Y%m%d%H%M"))
     html = html.replace("__DATA_JSON__", json.dumps(payload, ensure_ascii=False))
     return html

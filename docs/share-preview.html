@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>分享卡片预览</title>
+  <style>
+    body { font-family: -apple-system, "PingFang SC", sans-serif; background: #ededed; margin: 0; padding: 24px 16px; }
+    h1 { font-size: 1rem; color: #333; margin: 0 0 16px; font-weight: 600; }
+    .hint { font-size: .82rem; color: #666; margin-bottom: 20px; line-height: 1.5; }
+    .card {
+      max-width: 360px; background: #fff; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .card img { width: 100%; display: block; aspect-ratio: 1.91/1; object-fit: cover; background: #111; }
+    .card-body { padding: 12px 14px 14px; }
+    .card-title { font-size: .95rem; font-weight: 600; color: #111; line-height: 1.35; margin-bottom: 6px; }
+    .card-desc { font-size: .8rem; color: #888; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-url { font-size: .72rem; color: #b2b2b2; margin-top: 8px; }
+    .meta { margin-top: 24px; max-width: 360px; font-size: .75rem; color: #666; word-break: break-all; }
+    .meta dt { font-weight: 600; margin-top: 10px; }
+    .meta dd { margin: 4px 0 0; }
+    a { color: #576b95; }
+  </style>
+</head>
+<body>
+  <h1>微信分享卡片预览（本地模拟）</h1>
+  <p class="hint">实际微信聊天里的样式与此类似。线上分享请用 HTTPS 链接；本地仅预览布局与文案。</p>
+  <div class="card">
+    <img src="assets/share.jpg" alt="分享图" />
+    <div class="card-body">
+      <div class="card-title">中铁元湾篮球队 · 数据看板</div>
+      <div class="card-desc">近11场 4胜7负 · 胜率36% · 比分走势、回放与球员数据</div>
+      <div class="card-url">jankinlee2001.github.io/zhongtie-yuanwan-stats/</div>
+    </div>
+  </div>
+  <dl class="meta">
+    <dt>og:title</dt><dd>中铁元湾篮球队 · 数据看板</dd>
+    <dt>og:description</dt><dd>近11场 4胜7负 · 胜率36% · 比分走势、回放与球员数据</dd>
+    <dt>og:image（线上）</dt><dd>https://jankinlee2001.github.io/zhongtie-yuanwan-stats/assets/share.jpg</dd>
+    <dt>og:url</dt><dd>https://jankinlee2001.github.io/zhongtie-yuanwan-stats/</dd>
+  </dl>
+  <p style="margin-top:20px;font-size:.82rem"><a href="index.html">← 返回看板</a></p>
+</body>
+</html>

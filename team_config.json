@@ -11,6 +11,7 @@
   "sample_schedule_url": "https://m.lanqiu.woaoo.net/schedule/detail?scheduleId=2306518",
   "dashboard": {
     "last_n_games": 5,
+    "fetch_max_games": 30,
     "schedule_keyword": "元湾",
     "exclude_internal": true,
     "min_date": "2026-05-01",
@@ -24,6 +25,11 @@
     "url": "assets/3519782731.mp3",
     "title": "直到世界尽头",
     "volume": 0.45
+  },
+  "site": {
+    "url": "https://jankinlee2001.github.io/zhongtie-yuanwan-stats/",
+    "share_image": "assets/share.jpg",
+    "share_image_source": "assets/share.jpg"
   },
   "players": [
     {

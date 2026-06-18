@@ -60,19 +60,20 @@ def main() -> int:
     player_keywords = get_player_keywords(cfg)
     team_keyword = cfg.get("team_keyword", "中铁")
     last_n = dash.get("last_n_games", 5)
+    fetch_n = int(dash.get("fetch_max_games") or max(last_n, 30))
     year = dash.get("year")
     min_date = dash.get("min_date")
     match_mode = dash.get("match_mode", "keyword")
     exclude_internal = dash.get("exclude_internal", True)
     focus_uid = dash.get("focus_user_id") or (cfg.get("players") or [{}])[0].get("user_id")
 
-    print(f"拉取赛程 leagueId={league_id}，近 {last_n} 场（schedule={schedule_kw!r}）...")
+    print(f"拉取赛程 leagueId={league_id}，最多 {fetch_n} 场（页面可切换近5/近10/本赛季）...")
     schedules = list_league_schedules(league_id, season_id=None)
 
     filter_kw: dict = {
         "year": year,
         "min_date": min_date,
-        "last": last_n,
+        "last": fetch_n,
         "exclude_internal": exclude_internal,
         "internal_keyword": "中铁",
     }

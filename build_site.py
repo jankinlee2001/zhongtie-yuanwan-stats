@@ -39,6 +39,88 @@ def _prepare_bgm(cfg: dict, output_dir: Path) -> dict:
     }
 
 
+def _prepare_share(cfg: dict, output_dir: Path, payload: dict, team_name: str) -> dict:
+    """复制分享图并生成 Open Graph 元信息（微信链接卡片）。"""
+    site = cfg.get("site") or {}
+    base = str(site.get("url") or "https://jankinlee2001.github.io/zhongtie-yuanwan-stats/").rstrip("/")
+    rel = str(site.get("share_image") or "assets/share.jpg").lstrip("/")
+    src = Path(site.get("share_image_source") or rel)
+    if src.exists():
+        dest = output_dir / rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        print(f"分享图已复制 -> {dest.resolve()}")
+    elif not (output_dir / rel).exists():
+        print(f"提示: 未找到分享图 {src.resolve()}，微信卡片可能无缩略图")
+    gc = payload.get("gameCount") or 0
+    wins = payload.get("wins") or 0
+    losses = payload.get("losses") or 0
+    wp = round(wins / gc * 100) if gc else 0
+    title = f"{team_name} · 数据看板"
+    desc = f"近{gc}场 {wins}胜{losses}负 · 胜率{wp}% · 比分走势、回放与球员数据"
+    return {
+        "title": title,
+        "description": desc,
+        "image": f"{base}/{rel}",
+        "url": f"{base}/",
+    }
+
+
+def _write_share_preview(output_dir: Path, share: dict) -> None:
+    """本地预览微信分享卡片样式。"""
+    title = share.get("title", "")
+    desc = share.get("description", "")
+    image = share.get("image", "")
+    url = share.get("url", "")
+    local_img = "assets/share.jpg"
+    html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>分享卡片预览</title>
+  <style>
+    body {{ font-family: -apple-system, "PingFang SC", sans-serif; background: #ededed; margin: 0; padding: 24px 16px; }}
+    h1 {{ font-size: 1rem; color: #333; margin: 0 0 16px; font-weight: 600; }}
+    .hint {{ font-size: .82rem; color: #666; margin-bottom: 20px; line-height: 1.5; }}
+    .card {{
+      max-width: 360px; background: #fff; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }}
+    .card img {{ width: 100%; display: block; aspect-ratio: 1.91/1; object-fit: cover; background: #111; }}
+    .card-body {{ padding: 12px 14px 14px; }}
+    .card-title {{ font-size: .95rem; font-weight: 600; color: #111; line-height: 1.35; margin-bottom: 6px; }}
+    .card-desc {{ font-size: .8rem; color: #888; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
+    .card-url {{ font-size: .72rem; color: #b2b2b2; margin-top: 8px; }}
+    .meta {{ margin-top: 24px; max-width: 360px; font-size: .75rem; color: #666; word-break: break-all; }}
+    .meta dt {{ font-weight: 600; margin-top: 10px; }}
+    .meta dd {{ margin: 4px 0 0; }}
+    a {{ color: #576b95; }}
+  </style>
+</head>
+<body>
+  <h1>微信分享卡片预览（本地模拟）</h1>
+  <p class="hint">实际微信聊天里的样式与此类似。线上分享请用 HTTPS 链接；本地仅预览布局与文案。</p>
+  <div class="card">
+    <img src="{local_img}" alt="分享图" />
+    <div class="card-body">
+      <div class="card-title">{title}</div>
+      <div class="card-desc">{desc}</div>
+      <div class="card-url">{url.replace("https://", "")}</div>
+    </div>
+  </div>
+  <dl class="meta">
+    <dt>og:title</dt><dd>{title}</dd>
+    <dt>og:description</dt><dd>{desc}</dd>
+    <dt>og:image（线上）</dt><dd>{image}</dd>
+    <dt>og:url</dt><dd>{url}</dd>
+  </dl>
+  <p style="margin-top:20px;font-size:.82rem"><a href="index.html">← 返回看板</a></p>
+</body>
+</html>"""
+    (output_dir / "share-preview.html").write_text(html, encoding="utf-8")
+
+
 def _perspective_teams(cfg: dict) -> list[dict]:
     """看板统计视角：各分队/别名独立计算胜率。"""
     seen: set[str] = set()
@@ -104,15 +186,25 @@ def build_site(
     cfg = load_config()
     payload["perspectiveTeams"] = _perspective_teams(cfg)
     output_dir.mkdir(parents=True, exist_ok=True)
+    dash = cfg.get("dashboard") or {}
+    payload["range"] = {
+        "default": str(dash.get("last_n_games", 5)),
+        "seasonMinDate": dash.get("min_date"),
+        "seasonYear": dash.get("year"),
+        "fetched": len(payload.get("games") or []),
+    }
     payload["bgm"] = _prepare_bgm(cfg, output_dir)
+    share = _prepare_share(cfg, output_dir, payload, team_name)
+    payload["share"] = share
     normalize_payload_media(payload)
 
     (output_dir / "data.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     (output_dir / "index.html").write_text(
-        render_dashboard_html(payload, team_name), encoding="utf-8"
+        render_dashboard_html(payload, team_name, share=share), encoding="utf-8"
     )
+    _write_share_preview(output_dir, share)
     print(f"站点已生成 -> {output_dir.resolve()}")
     return output_dir
 

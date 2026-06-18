@@ -8,6 +8,15 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
   <title>__TEAM_NAME__ · 数据看板</title>
+  <meta name="description" content="__OG_DESC__" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="__OG_TITLE__" />
+  <meta property="og:description" content="__OG_DESC__" />
+  <meta property="og:image" content="__OG_IMAGE__" />
+  <meta property="og:url" content="__OG_URL__" />
+  <meta itemprop="name" content="__OG_TITLE__" />
+  <meta itemprop="description" content="__OG_DESC__" />
+  <meta itemprop="image" content="__OG_IMAGE__" />
   <link rel="preload" as="image" href="assets/bg/court.jpg?v=__CACHE_VER__" fetchpriority="high" />
   <style>
     :root {
@@ -325,6 +334,16 @@
     }
     .podium-slot.rank-1 .podium-avatar-fallback { width: 58px; height: 58px; border-color: #fbbf24; }
     .podium-player.empty { color: var(--muted); font-size: .8rem; }
+    .podium-player.clickable { cursor: pointer; }
+    .podium-player.clickable:hover .podium-name { color: var(--accent2); }
+    .podium-player.clickable:active { transform: scale(.98); }
+    .player-table tr.row-highlight td {
+      background: rgba(255,107,44,.18) !important;
+      box-shadow: inset 0 0 0 1px rgba(255,154,92,.45);
+    }
+    .player-table tr.row-highlight td:first-child { background: rgba(255,107,44,.22) !important; }
+    .range-hint { font-size: .72rem; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+    .tab.disabled { opacity: .4; pointer-events: none; }
     .podium-name {
       font-size: .82rem; font-weight: 800; line-height: 1.25;
       word-break: break-all;
@@ -570,6 +589,9 @@
     <div class="panel-head"><h2>统计视角</h2></div>
     <div class="tabs" id="perspectiveTabs"></div>
     <p class="perspective-hint" id="perspectiveHint">队内赛较多时，请切换分队查看该队胜率与数据</p>
+    <div class="panel-head" style="margin-top:14px;margin-bottom:10px"><h2>场次范围</h2></div>
+    <div class="tabs" id="rangeTabs"></div>
+    <p class="range-hint" id="rangeHint"></p>
   </div>
 
   <div class="panel anim d1" id="videoPanel">
@@ -701,6 +723,8 @@ let clipState = { clips: [], idx: 0, player: '', gameDate: '', scheduleId: null 
 let activeIdx = 0;
 let activeSide = 'our';
 const TOP_PLAYER_LIMIT = 8;
+const RANGE_CFG = DATA.range || { default: '5', seasonMinDate: null, seasonYear: null, fetched: games.length };
+let rangeMode = String(RANGE_CFG.default || '5');
 const BGM = DATA.bgm || { enabled: false, url: '', title: '直到世界尽头', volume: 0.45 };
 let bgmWantsPlay = true;
 
@@ -1115,9 +1139,38 @@ function remapGameForPerspective(g, keyword) {
   return { ...g, players, topScorers: g.topScorers || players.slice(0, 5), win: g.ourScore > g.oppScore };
 }
 
-function buildVisibleGames() {
+function buildPerspectiveGames() {
   const { keyword } = currentPerspective();
   return games.filter(g => gameHasTeam(g, keyword)).map(g => remapGameForPerspective(g, keyword));
+}
+
+function perspectiveGamePool() {
+  return buildPerspectiveGames().slice().sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function applyRangeFilter(pool) {
+  if (rangeMode === 'season') {
+    const minDate = RANGE_CFG.seasonMinDate;
+    const year = RANGE_CFG.seasonYear;
+    if (minDate) return pool.filter(g => g.date >= minDate);
+    if (year) return pool.filter(g => String(g.date).startsWith(String(year)));
+    return pool.slice();
+  }
+  const n = parseInt(rangeMode, 10) || 5;
+  return pool.slice(-n);
+}
+
+function buildVisibleGames() {
+  return applyRangeFilter(perspectiveGamePool());
+}
+
+function rangeLabelText() {
+  if (rangeMode === 'season') return '本赛季';
+  return '近' + rangeMode + '场';
+}
+
+function maxPoolCount() {
+  return perspectiveGamePool().length;
 }
 
 function computeTopPlayers(vgames) {
@@ -1133,6 +1186,45 @@ function computeTopPlayers(vgames) {
     });
   });
   return Object.values(map).sort((a, b) => b.得分 - a.得分).slice(0, TOP_PLAYER_LIMIT);
+}
+
+function renderRangeTabs() {
+  const box = document.getElementById('rangeTabs');
+  const hint = document.getElementById('rangeHint');
+  if (!box) return;
+  const pool = maxPoolCount();
+  const opts = [
+    { id: '5', label: '近5场', min: 1 },
+    { id: '10', label: '近10场', min: 6 },
+    { id: 'season', label: '本赛季', min: 1 },
+  ];
+  box.innerHTML = '';
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    const disabled = pool < opt.min && opt.id !== 'season';
+    btn.className = 'tab' + (rangeMode === opt.id ? ' active' : '') + (disabled ? ' disabled' : '');
+    btn.textContent = opt.label;
+    btn.type = 'button';
+    if (!disabled) {
+      btn.onclick = () => {
+        rangeMode = opt.id;
+        applyPerspective();
+      };
+    }
+    box.appendChild(btn);
+  });
+  if (hint) {
+    const fetched = RANGE_CFG.fetched || games.length;
+    if (pool === 0) {
+      hint.textContent = '当前视角暂无比赛';
+    } else if (rangeMode === 'season') {
+      hint.textContent = '本赛季共 ' + visibleGames.length + ' 场（已拉取最多 ' + fetched + ' 场数据）';
+    } else if (pool < parseInt(rangeMode, 10)) {
+      hint.textContent = '当前视角仅有 ' + pool + ' 场，已展示全部';
+    } else {
+      hint.textContent = rangeLabelText() + ' · 共 ' + visibleGames.length + ' 场';
+    }
+  }
 }
 
 function renderPerspectiveTabs() {
@@ -1290,20 +1382,21 @@ function applyPerspective() {
   document.getElementById('statWins').textContent = wins;
   document.getElementById('statLosses').textContent = losses;
   document.getElementById('statWinPct').textContent = pct + '%';
-  document.querySelector('.hero .sub').textContent = label + ' · 近 ' + visibleGames.length + ' 场战绩';
+  document.querySelector('.hero .sub').textContent = label + ' · ' + rangeLabelText() + '战绩';
   document.getElementById('perspectiveHint').textContent = visibleGames.length
-    ? label + ' 共 ' + visibleGames.length + ' 场：胜 ' + wins + ' 负 ' + losses + '（胜率 ' + pct + '%）'
+    ? label + ' · ' + rangeLabelText() + '：' + visibleGames.length + ' 场，胜 ' + wins + ' 负 ' + losses + '（胜率 ' + pct + '%）'
     : label + ' 暂无参与的比赛';
   document.getElementById('scoreLegendOur').textContent = label;
   document.getElementById('scoreLegendOpp').textContent = '对手';
   const topTitle = document.getElementById('topChartTitle');
   topTitle.textContent = visibleGames.length
-    ? label + ' · 近' + visibleGames.length + '场得分 TOP' + TOP_PLAYER_LIMIT
+    ? label + ' · ' + rangeLabelText() + '得分 TOP' + TOP_PLAYER_LIMIT
     : label + ' · 暂无比赛';
   activeIdx = Math.max(0, visibleGames.length - 1);
   videoIdx = Math.max(0, visibleGames.length - 1);
   activeSide = 'our';
   renderPerspectiveTabs();
+  renderRangeTabs();
   renderVideoTabs();
   renderGameTabs();
   renderVideo();
@@ -1394,7 +1487,7 @@ function podiumSlotHtml(rank, player) {
     </div>`;
   }
   return `<div class="podium-slot rank-${rank}">
-    <div class="podium-player">
+    <div class="podium-player clickable" data-player="${String(player.球员).replace(/"/g, '&quot;')}" role="button" tabindex="0" title="点击查看球员数据">
       ${podiumAvatarHtml(player)}
       <div class="podium-name">${player.球员}</div>
       <div class="podium-team">${shortTeamName(player._team)}</div>
@@ -1404,10 +1497,42 @@ function podiumSlotHtml(rank, player) {
   </div>`;
 }
 
+function bindPodiumClicks() {
+  document.querySelectorAll('.podium-player.clickable[data-player]').forEach(el => {
+    if (el._bound) return;
+    el._bound = true;
+    const go = () => focusPlayerInTable(el.getAttribute('data-player'));
+    el.onclick = go;
+    el.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+  });
+}
+
+function focusPlayerInTable(playerName) {
+  if (!playerName) return;
+  const g = visibleGames[activeIdx];
+  if (!g) return;
+  const ourList = g.players || g.topScorers || [];
+  const oppList = g.oppPlayers || [];
+  const inOur = ourList.some(p => p.球员 === playerName);
+  const inOpp = oppList.some(p => p.球员 === playerName);
+  if (inOur) activeSide = 'our';
+  else if (inOpp) activeSide = 'opp';
+  renderPlayerTable();
+  requestAnimationFrame(() => {
+    const rows = document.querySelectorAll('#playerTable tr[data-player]');
+    let target = null;
+    rows.forEach(tr => { if (tr.getAttribute('data-player') === playerName) target = tr; });
+    if (!target) return;
+    target.classList.add('row-highlight');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => target.classList.remove('row-highlight'), 2600);
+  });
+}
+
 function renderEffPodium(players) {
   const top3 = topEfficiencyPlayers(players, 3);
   return `<div class="honors-block">
-    <div class="honors-title">效率 TOP3</div>
+    <div class="honors-title">效率 TOP3 · 点击球员定位表格</div>
     <div class="eff-podium">` +
     podiumSlotHtml(2, top3[1]) +
     podiumSlotHtml(1, top3[0]) +
@@ -1476,6 +1601,7 @@ function renderGameHonors(g) {
       ${duelRowHtml('助攻王', teamStatLeader(ourPlayers, '助攻'), teamStatLeader(oppPlayers, '助攻'), ourLabel, oppLabel)}
       ${duelRowHtml('篮板王', teamStatLeader(ourPlayers, '篮板'), teamStatLeader(oppPlayers, '篮板'), ourLabel, oppLabel)}
     </div>`;
+  bindPodiumClicks();
 }
 
 function renderTeamSideTabs() {
@@ -1540,7 +1666,7 @@ function renderPlayerTable() {
     const hl = p.highlightUrl
       ? `<span class="hl-actions"><button class="hl-btn" type="button" data-idx="${activeIdx}" data-player="${i}">播放${p.highlightCount > 1 ? '(' + p.highlightCount + ')' : ''}</button><button class="hl-dl-btn" type="button" data-idx="${activeIdx}" data-player="${i}">保存</button></span>`
       : '<span class="hl-none">无</span>';
-    return `<tr>
+    return `<tr data-player="${String(p.球员).replace(/"/g, '&quot;')}">
       <td>${p.球员}${i === 0 ? ' 🏆' : ''}</td>
       <td class="pts">${p.得分}</td>
       <td>${p.篮板 ?? '-'}</td>

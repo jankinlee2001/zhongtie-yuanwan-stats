@@ -26,7 +26,7 @@ def ensure_dashboard() -> Path:
 def mirror_to_home(docs: Path) -> Path:
   """复制到用户目录（纯英文路径），避免中文路径导致浏览器打不开。"""
   MIRROR.mkdir(parents=True, exist_ok=True)
-  for name in ("index.html", "data.json", "save.html"):
+  for name in ("index.html", "data.json", "save.html", "share-preview.html"):
     src = docs / name
     if src.exists():
       shutil.copy2(src, MIRROR / name)
