@@ -190,12 +190,6 @@
       color: var(--muted); font-size: .82rem; margin-top: 10px; line-height: 1.55; font-weight: 600;
     }
     .current-game-meta b { color: var(--text); font-weight: 800; }
-    .table-expand-btn {
-      flex-shrink: 0; padding: 5px 12px; border-radius: 999px; font-size: .72rem; font-weight: 700;
-      border: 1px solid var(--glass-border); background: rgba(0,0,0,.35); color: var(--muted); cursor: pointer;
-    }
-    .table-expand-btn:hover { border-color: rgba(255,255,255,.25); color: var(--text); }
-    .player-table:not(.expanded) .col-extra { display: none; }
     @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     .btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .vbtn {
@@ -296,7 +290,6 @@
     .player-table tr:hover td { background: rgba(255,255,255,.03); }
     .player-table tr:hover td:first-child { background: rgba(0,0,0,.4); }
     .player-table .pts { color: var(--accent2); font-weight: 700; }
-    .player-table .starter { color: var(--win); font-size: .7rem; }
     .game-meta { color: var(--muted); font-size: .82rem; margin-top: 8px; line-height: 1.55; font-weight: 500; }
     .team-side-tabs {
       display: flex; gap: 8px; margin-top: 12px;
@@ -641,10 +634,7 @@
   </div>
 
   <div class="panel anim d2">
-    <div class="panel-head">
-      <h2>单场球员数据</h2>
-      <button type="button" class="table-expand-btn" id="tableExpandBtn">更多数据</button>
-    </div>
+    <div class="panel-head"><h2>单场球员数据</h2></div>
     <p class="game-meta" id="gameMeta"></p>
     <div class="game-honors" id="gameHonors"></div>
     <div class="team-side-tabs" id="teamSideTabs"></div>
@@ -655,9 +645,8 @@
         <thead>
           <tr>
             <th>球员</th><th>得分</th><th>篮板</th><th>助攻</th>
-            <th class="col-extra">抢断</th><th class="col-extra">盖帽</th>
-            <th class="col-extra">失误</th><th class="col-extra">犯规</th>
-            <th>效率</th><th class="col-extra">首发</th><th class="hl-col">▶集锦</th>
+            <th>抢断</th><th>盖帽</th><th>失误</th><th>犯规</th>
+            <th>效率</th><th class="hl-col">▶集锦</th>
           </tr>
         </thead>
         <tbody id="playerTable"></tbody>
@@ -762,7 +751,6 @@ let videoMode = 'playback';
 let clipState = { clips: [], idx: 0, player: '', gameDate: '', scheduleId: null };
 let activeIdx = 0;
 let activeSide = 'our';
-let playerTableExpanded = false;
 const TOP_PLAYER_LIMIT = 8;
 const RANGE_CFG = DATA.range || { default: '5', seasonMinDate: null, seasonYear: null, fetched: games.length };
 let rangeMode = String(RANGE_CFG.default || '5');
@@ -1205,6 +1193,15 @@ function buildVisibleGames() {
   return applyRangeFilter(perspectiveGamePool());
 }
 
+function latestGameIdx(vgames) {
+  if (!vgames.length) return 0;
+  let best = 0;
+  for (let i = 1; i < vgames.length; i++) {
+    if (String(vgames[i].date).localeCompare(String(vgames[best].date)) > 0) best = i;
+  }
+  return best;
+}
+
 function rangeLabelText() {
   if (rangeMode === 'season') return '本赛季';
   return '近' + rangeMode + '场';
@@ -1304,7 +1301,7 @@ function renderCurrentGameTabs() {
   if (!box) return;
   box.innerHTML = '';
   if (!visibleGames.length) return;
-  if (activeIdx >= visibleGames.length) activeIdx = visibleGames.length - 1;
+  if (activeIdx >= visibleGames.length || activeIdx < 0) activeIdx = latestGameIdx(visibleGames);
   visibleGames.forEach((g, i) => {
     const lossTag = !g.win && g.ourScore !== g.oppScore;
     const cls = 'tab' + (i === activeIdx ? ' active' : '') + (g.win ? ' win-tag' : (lossTag ? ' loss-tag' : ''));
@@ -1315,6 +1312,8 @@ function renderCurrentGameTabs() {
     btn.onclick = () => selectGame(i);
     box.appendChild(btn);
   });
+  const activeTab = box.querySelector('.tab.active');
+  if (activeTab) activeTab.scrollIntoView({ inline: 'end', block: 'nearest' });
   renderCurrentGameMeta();
 }
 
@@ -1422,7 +1421,7 @@ function applyPerspective() {
   topTitle.textContent = visibleGames.length
     ? label + ' · ' + rangeLabelText() + '得分 TOP' + TOP_PLAYER_LIMIT
     : label + ' · 暂无比赛';
-  activeIdx = Math.max(0, visibleGames.length - 1);
+  activeIdx = latestGameIdx(visibleGames);
   activeSide = 'our';
   renderPerspectiveTabs();
   renderRangeTabs();
@@ -1676,10 +1675,6 @@ function renderPlayerTable() {
     '查看 <span style="color:' + hlColor + '">' + teamLabel + '</span> 球员 · ' + sideResult + ' ' + teamScore + '分' +
     ' · 共 ' + list.length + ' 人出场' +
     (withHl.length ? ' · <span style="color:' + hlColor + '">' + withHl.length + ' 人有个人集锦</span>' : '');
-  const tableEl = document.getElementById('playerTableEl');
-  if (tableEl) tableEl.classList.toggle('expanded', playerTableExpanded);
-  const expandBtn = document.getElementById('tableExpandBtn');
-  if (expandBtn) expandBtn.textContent = playerTableExpanded ? '收起' : '更多数据';
   document.getElementById('tableHint').style.display = withHl.length ? 'block' : 'none';
   document.getElementById('playerHighlightChips').style.display = withHl.length ? 'flex' : 'none';
   document.getElementById('playerHighlightChips').innerHTML = withHl.map(p => {
@@ -1701,12 +1696,11 @@ function renderPlayerTable() {
       <td class="pts">${p.得分}</td>
       <td>${p.篮板 ?? '-'}</td>
       <td>${p.助攻 ?? '-'}</td>
-      <td class="col-extra">${p.抢断 ?? '-'}</td>
-      <td class="col-extra">${p.盖帽 ?? '-'}</td>
-      <td class="col-extra">${p.失误 ?? '-'}</td>
-      <td class="col-extra">${p.犯规 ?? '-'}</td>
+      <td>${p.抢断 ?? '-'}</td>
+      <td>${p.盖帽 ?? '-'}</td>
+      <td>${p.失误 ?? '-'}</td>
+      <td>${p.犯规 ?? '-'}</td>
       <td>${p.效率 ?? '-'}</td>
-      <td class="col-extra">${p.首发 ? '<span class="starter">✓</span>' : ''}</td>
       <td class="hl-col">${hl}</td>
     </tr>`;
   }).join('');
@@ -1815,14 +1809,6 @@ function renderGameTable() {
       <td>${top ? top.球员 + ' <b>' + top.得分 + '</b>分' : '-'}</td>`;
     tbody.appendChild(tr);
   });
-}
-
-const tableExpandBtn = document.getElementById('tableExpandBtn');
-if (tableExpandBtn) {
-  tableExpandBtn.onclick = () => {
-    playerTableExpanded = !playerTableExpanded;
-    renderPlayerTable();
-  };
 }
 
 initBgm();
