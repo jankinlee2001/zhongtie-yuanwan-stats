@@ -159,26 +159,43 @@
     }
     .video-placeholder span { font-size: 2rem; opacity: .4; }
     .bgm-strip {
-      display: none; margin-bottom: 14px; padding: 12px 14px;
-      border-radius: var(--radius); border: 1px solid rgba(255,154,92,.35);
-      background: linear-gradient(135deg, rgba(255,107,44,.16), rgba(255,154,92,.06));
-      animation: fadeUp .5s ease both;
+      display: none; margin-top: 14px; position: relative; z-index: 1;
     }
     .bgm-strip-btn {
-      width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,154,92,.45);
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,154,92,.4);
       background: rgba(0,0,0,.35); color: var(--accent2);
-      font-size: .86rem; font-weight: 700; cursor: pointer; transition: all .25s;
+      font-size: .76rem; font-weight: 700; cursor: pointer; transition: all .25s;
     }
-    .bgm-strip-btn .bgm-icon { font-size: 1.1rem; line-height: 1; }
+    .bgm-strip-btn .bgm-icon { font-size: .95rem; line-height: 1; }
     .bgm-strip.playing .bgm-strip-btn {
       border-color: transparent; color: #fff;
       background: linear-gradient(135deg, var(--accent), #e85d24);
-      box-shadow: 0 0 20px rgba(255,107,44,.35);
+      box-shadow: 0 0 14px rgba(255,107,44,.3);
     }
     .bgm-strip.playing .bgm-icon { animation: bgmPulse 1.2s ease-in-out infinite; }
-    .bgm-strip-hint { display: block; margin-top: 8px; font-size: .76rem; color: var(--muted); text-align: center; }
+    .bgm-strip-hint { display: none; }
     .bgm-strip.off .bgm-strip-btn { opacity: .65; }
+    .filter-panel { padding: 14px 16px; }
+    .filter-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .filter-row:last-of-type { margin-bottom: 0; }
+    .filter-label {
+      flex-shrink: 0; width: 2.4em; font-size: .78rem; font-weight: 800; color: var(--muted);
+      letter-spacing: .04em;
+    }
+    .filter-row .tabs { flex: 1; min-width: 0; }
+    .filter-summary { color: var(--muted); font-size: .78rem; margin-top: 10px; line-height: 1.55; font-weight: 500; }
+    .current-game-panel { padding-top: 14px; }
+    .current-game-meta {
+      color: var(--muted); font-size: .82rem; margin-top: 10px; line-height: 1.55; font-weight: 600;
+    }
+    .current-game-meta b { color: var(--text); font-weight: 800; }
+    .table-expand-btn {
+      flex-shrink: 0; padding: 5px 12px; border-radius: 999px; font-size: .72rem; font-weight: 700;
+      border: 1px solid var(--glass-border); background: rgba(0,0,0,.35); color: var(--muted); cursor: pointer;
+    }
+    .table-expand-btn:hover { border-color: rgba(255,255,255,.25); color: var(--text); }
+    .player-table:not(.expanded) .col-extra { display: none; }
     @keyframes bgmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     .btn-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
     .vbtn {
@@ -551,9 +568,7 @@
     .game-detail-table .match-sep { color: var(--muted); font-weight: 600; }
     .game-detail-table .date-cell { white-space: nowrap; color: var(--muted); font-size: .8rem; font-weight: 600; }
     .game-detail-table .result-cell { white-space: nowrap; }
-    .perspective-panel { padding: 14px 16px; margin-bottom: 14px; }
-    .perspective-panel .panel-head { margin-bottom: 10px; }
-    .perspective-hint { color: var(--muted); font-size: .78rem; margin-top: 8px; line-height: 1.55; font-weight: 500; }
+    .perspective-panel { margin-bottom: 14px; }
     .score-legend-our { color: var(--accent2); font-weight: 700; }
     .score-legend-opp { color: #7dd3fc; font-weight: 700; }
     footer { text-align: center; color: var(--muted); font-size: .78rem; margin-top: 20px; line-height: 1.8; opacity: .98; text-shadow: var(--text-shadow); }
@@ -590,29 +605,80 @@
     <h1>__TEAM_NAME__</h1>
     <p class="sub">近 __GAME_COUNT__ 场战绩看板</p>
     <p class="updated">更新于 __GEN_TIME__</p>
+    <div class="bgm-strip" id="bgmStrip">
+      <button type="button" class="bgm-strip-btn" id="bgmBar">
+        <span class="bgm-icon">🎵</span>
+        <span id="bgmLabel">直到世界尽头 · 点击播放</span>
+      </button>
+      <span class="bgm-strip-hint" id="bgmStripHint"></span>
+    </div>
   </header>
 
-  <div class="bgm-strip" id="bgmStrip">
-    <button type="button" class="bgm-strip-btn" id="bgmBar">
-      <span class="bgm-icon">🎵</span>
-      <span id="bgmLabel">直到世界尽头 · 点击播放</span>
-    </button>
-    <span class="bgm-strip-hint" id="bgmStripHint">浏览看板时配乐 · 播放视频时自动暂停</span>
+  <div class="stats anim d1">
+    <div class="stat"><div class="lbl">场次</div><div class="val" id="statGames">__GAME_COUNT__</div></div>
+    <div class="stat"><div class="lbl">胜</div><div class="val win" id="statWins">__WINS__</div></div>
+    <div class="stat"><div class="lbl">负</div><div class="val loss" id="statLosses">__LOSSES__</div></div>
+    <div class="stat"><div class="lbl">胜率</div><div class="val accent" id="statWinPct">__WIN_PCT__%</div></div>
   </div>
 
-  <div class="panel anim perspective-panel">
-    <div class="panel-head"><h2>统计视角</h2></div>
-    <div class="tabs" id="perspectiveTabs"></div>
-    <p class="perspective-hint" id="perspectiveHint">队内赛较多时，请切换分队查看该队胜率与数据</p>
-    <div class="panel-head" style="margin-top:14px;margin-bottom:10px"><h2>场次范围</h2></div>
-    <div class="tabs" id="rangeTabs"></div>
+  <div class="panel anim perspective-panel filter-panel">
+    <div class="filter-row">
+      <span class="filter-label">视角</span>
+      <div class="tabs" id="perspectiveTabs"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">范围</span>
+      <div class="tabs" id="rangeTabs"></div>
+    </div>
+    <p class="filter-summary" id="perspectiveHint">队内赛较多时，请切换分队查看该队胜率与数据</p>
     <p class="range-hint" id="rangeHint"></p>
   </div>
 
-  <div class="panel anim d1" id="videoPanel">
+  <div class="panel anim current-game-panel" id="currentGamePanel">
+    <div class="panel-head" style="margin-bottom:10px"><h2>当前比赛</h2></div>
+    <div class="tabs" id="currentGameTabs"></div>
+    <p class="current-game-meta" id="currentGameMeta"></p>
+  </div>
+
+  <div class="panel anim d2">
+    <div class="panel-head">
+      <h2>单场球员数据</h2>
+      <button type="button" class="table-expand-btn" id="tableExpandBtn">更多数据</button>
+    </div>
+    <p class="game-meta" id="gameMeta"></p>
+    <div class="game-honors" id="gameHonors"></div>
+    <div class="team-side-tabs" id="teamSideTabs"></div>
+    <div class="player-highlights" id="playerHighlightChips"></div>
+    <p class="table-hint" id="tableHint">👇 表格最右侧可播放或下载个人集锦，或点上方球员胶囊</p>
+    <div class="table-wrap">
+      <table class="player-table" id="playerTableEl">
+        <thead>
+          <tr>
+            <th>球员</th><th>得分</th><th>篮板</th><th>助攻</th>
+            <th class="col-extra">抢断</th><th class="col-extra">盖帽</th>
+            <th class="col-extra">失误</th><th class="col-extra">犯规</th>
+            <th>效率</th><th class="col-extra">首发</th><th class="hl-col">▶集锦</th>
+          </tr>
+        </thead>
+        <tbody id="playerTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel anim d3">
+    <div class="panel-head"><h2>球队表现</h2></div>
+    <p class="team-perf-meta" id="teamPerfMeta"></p>
+    <div class="table-wrap">
+      <table class="team-perf-table">
+        <thead id="teamPerfHead"></thead>
+        <tbody id="teamPerfBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel anim d4" id="videoPanel">
     <div class="panel-head"><h2>比赛回放</h2></div>
-    <div class="tabs" id="videoTabs"></div>
-    <div class="video-frame" id="videoWrap" style="margin-top:12px">
+    <div class="video-frame" id="videoWrap">
       <video id="mainVideo" controls playsinline webkit-playsinline preload="metadata"></video>
     </div>
     <div class="btn-row">
@@ -624,14 +690,7 @@
     <p class="video-meta" id="videoMeta"></p>
   </div>
 
-  <div class="stats anim d2">
-    <div class="stat"><div class="lbl">场次</div><div class="val" id="statGames">__GAME_COUNT__</div></div>
-    <div class="stat"><div class="lbl">胜</div><div class="val win" id="statWins">__WINS__</div></div>
-    <div class="stat"><div class="lbl">负</div><div class="val loss" id="statLosses">__LOSSES__</div></div>
-    <div class="stat"><div class="lbl">胜率</div><div class="val accent" id="statWinPct">__WIN_PCT__%</div></div>
-  </div>
-
-  <div class="panel anim d3">
+  <div class="panel anim d4">
     <div class="panel-head"><h2>比分走势</h2></div>
     <div class="legend"><span><i style="background:var(--accent)"></i><span id="scoreLegendOur">我方</span></span><span><i style="background:var(--blue)"></i><span id="scoreLegendOpp" class="score-legend-opp">对手</span></span></div>
     <div class="bar-chart" id="scoreChart"></div>
@@ -641,39 +700,6 @@
   <div class="panel anim d4">
     <div class="panel-head"><h2 id="topChartTitle">累计得分 TOP</h2></div>
     <div class="h-bars" id="topChart"></div>
-  </div>
-
-  <div class="panel anim d4">
-    <div class="panel-head"><h2>单场球员数据</h2></div>
-    <div class="tabs" id="gameTabs"></div>
-    <p class="game-meta" id="gameMeta"></p>
-    <div class="game-honors" id="gameHonors"></div>
-    <div class="team-side-tabs" id="teamSideTabs"></div>
-    <div class="player-highlights" id="playerHighlightChips"></div>
-    <p class="table-hint" id="tableHint">👇 表格最右侧可播放或下载个人集锦，或点上方球员胶囊</p>
-    <div class="table-wrap">
-      <table class="player-table">
-        <thead>
-          <tr>
-            <th>球员</th><th>得分</th><th>篮板</th><th>助攻</th><th>抢断</th>
-            <th>盖帽</th><th>失误</th><th>犯规</th><th>效率</th><th>首发</th><th class="hl-col">▶集锦</th>
-          </tr>
-        </thead>
-        <tbody id="playerTable"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="panel anim d4">
-    <div class="panel-head"><h2>球队表现</h2></div>
-    <div class="tabs" id="teamPerfTabs"></div>
-    <p class="team-perf-meta" id="teamPerfMeta"></p>
-    <div class="table-wrap">
-      <table class="team-perf-table">
-        <thead id="teamPerfHead"></thead>
-        <tbody id="teamPerfBody"></tbody>
-      </table>
-    </div>
   </div>
 
   <div class="panel anim d4">
@@ -732,11 +758,11 @@ const games = DATA.games;
 const perspectiveTeams = DATA.perspectiveTeams || [{ label: '中铁元湾', keyword: '元湾' }];
 let perspectiveIdx = 0;
 let visibleGames = [];
-let videoIdx = 0;
 let videoMode = 'playback';
 let clipState = { clips: [], idx: 0, player: '', gameDate: '', scheduleId: null };
 let activeIdx = 0;
 let activeSide = 'our';
+let playerTableExpanded = false;
 const TOP_PLAYER_LIMIT = 8;
 const RANGE_CFG = DATA.range || { default: '5', seasonMinDate: null, seasonYear: null, fetched: games.length };
 let rangeMode = String(RANGE_CFG.default || '5');
@@ -1003,7 +1029,7 @@ function renderVideo() {
     syncBgm();
     return;
   }
-  const g = visibleGames[videoIdx];
+  const g = visibleGames[activeIdx];
   const wrap = document.getElementById('videoWrap');
   const meta = document.getElementById('videoMeta');
   const link = document.getElementById('linkWoao');
@@ -1258,59 +1284,48 @@ function renderPerspectiveTabs() {
   });
 }
 
-function renderVideoTabs() {
-  const videoTabs = document.getElementById('videoTabs');
-  videoTabs.innerHTML = '';
-  if (!visibleGames.length) return;
-  if (videoIdx >= visibleGames.length) videoIdx = visibleGames.length - 1;
-  visibleGames.forEach((g, i) => {
-    const b = document.createElement('button');
-    const lossTag = !g.win && g.ourScore !== g.oppScore;
-    b.className = 'tab' + (i === videoIdx ? ' active' : '') + (g.win ? ' win-tag' : (lossTag ? ' loss-tag' : ''));
-    b.textContent = g.date.slice(5);
-    b.type = 'button';
-    b.onclick = () => {
-      videoIdx = i;
-      document.querySelectorAll('#videoTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i));
-      renderVideo();
-    };
-    videoTabs.appendChild(b);
-  });
+function renderCurrentGameMeta() {
+  const el = document.getElementById('currentGameMeta');
+  const panel = document.getElementById('currentGamePanel');
+  if (!el) return;
+  if (!visibleGames.length) {
+    el.textContent = '当前视角暂无比赛';
+    if (panel) panel.style.display = 'none';
+    return;
+  }
+  if (panel) panel.style.display = '';
+  const g = visibleGames[activeIdx];
+  el.innerHTML = g.date + ' · ' + shortTeamName(g.ourTeam) + ' <b>' + g.ourScore + '</b> : <b>' + g.oppScore + '</b> ' +
+    shortTeamName(g.opponent) + ' · 本场 ' + gameWinnerLabel(g);
 }
 
-function selectGame(i) {
-  activeIdx = i;
-  activeSide = 'our';
-  document.querySelectorAll('#gameTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i));
-  document.querySelectorAll('#teamPerfTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i));
-  renderPlayerTable();
-  renderTeamCompareBoard();
-}
-
-function renderGameTabs() {
-  const gameTabs = document.getElementById('gameTabs');
-  const teamPerfTabs = document.getElementById('teamPerfTabs');
-  gameTabs.innerHTML = '';
-  teamPerfTabs.innerHTML = '';
+function renderCurrentGameTabs() {
+  const box = document.getElementById('currentGameTabs');
+  if (!box) return;
+  box.innerHTML = '';
   if (!visibleGames.length) return;
   if (activeIdx >= visibleGames.length) activeIdx = visibleGames.length - 1;
   visibleGames.forEach((g, i) => {
     const lossTag = !g.win && g.ourScore !== g.oppScore;
     const cls = 'tab' + (i === activeIdx ? ' active' : '') + (g.win ? ' win-tag' : (lossTag ? ' loss-tag' : ''));
-    const label = g.date.slice(5);
     const btn = document.createElement('button');
     btn.className = cls;
-    btn.textContent = label;
+    btn.textContent = g.date.slice(5);
     btn.type = 'button';
     btn.onclick = () => selectGame(i);
-    gameTabs.appendChild(btn);
-    const btn2 = document.createElement('button');
-    btn2.className = cls;
-    btn2.textContent = label;
-    btn2.type = 'button';
-    btn2.onclick = () => selectGame(i);
-    teamPerfTabs.appendChild(btn2);
+    box.appendChild(btn);
   });
+  renderCurrentGameMeta();
+}
+
+function selectGame(i) {
+  activeIdx = i;
+  activeSide = 'our';
+  document.querySelectorAll('#currentGameTabs .tab').forEach((t, j) => t.classList.toggle('active', j === i));
+  renderCurrentGameMeta();
+  renderVideo();
+  renderPlayerTable();
+  renderTeamCompareBoard();
 }
 
 const TEAM_PERF_ROWS = [
@@ -1361,7 +1376,7 @@ function renderTeamCompareBoard() {
   const oppName = shortTeamName(g.opponent);
   const our = g.ourTeamStats;
   const opp = g.oppTeamStats;
-  meta.innerHTML = ourName + ' <b>' + g.ourScore + '</b> : <b>' + g.oppScore + '</b> ' + oppName + ' · 本场 ' + gameWinnerLabel(g);
+  meta.innerHTML = '本场两队技术统计对比';
   head.innerHTML = '<tr><th class="label-h">项目</th><th class="our-h">' + ourName + '</th><th class="opp-h">' + oppName + '</th></tr>';
   if (!our && !opp) {
     body.innerHTML = '<tr><td colspan="3" class="team-perf-empty">暂无球队统计数据，请重新运行 publish_dashboard.py 拉取</td></tr>';
@@ -1408,12 +1423,10 @@ function applyPerspective() {
     ? label + ' · ' + rangeLabelText() + '得分 TOP' + TOP_PLAYER_LIMIT
     : label + ' · 暂无比赛';
   activeIdx = Math.max(0, visibleGames.length - 1);
-  videoIdx = Math.max(0, visibleGames.length - 1);
   activeSide = 'our';
   renderPerspectiveTabs();
   renderRangeTabs();
-  renderVideoTabs();
-  renderGameTabs();
+  renderCurrentGameTabs();
   renderVideo();
   renderScoreChart();
   renderHBars('topChart', computeTopPlayers(visibleGames), '球员', '得分');
@@ -1660,11 +1673,13 @@ function renderPlayerTable() {
     : '<span style="color:' + (sideWin ? 'var(--win)' : 'var(--loss)') + '">' + (sideWin ? '胜' : '负') + '</span>';
   const hlColor = isOurs ? 'var(--accent2)' : 'var(--blue)';
   document.getElementById('gameMeta').innerHTML =
-    shortTeamName(g.ourTeam) + ' <b>' + g.ourScore + '</b> : <b>' + g.oppScore + '</b> ' + shortTeamName(g.opponent) +
-    ' · 本场 ' + gameWinnerLabel(g) +
-    ' · 当前 <span style="color:' + hlColor + '">' + teamLabel + '</span> ' + sideResult + ' ' + teamScore + '分' +
+    '查看 <span style="color:' + hlColor + '">' + teamLabel + '</span> 球员 · ' + sideResult + ' ' + teamScore + '分' +
     ' · 共 ' + list.length + ' 人出场' +
     (withHl.length ? ' · <span style="color:' + hlColor + '">' + withHl.length + ' 人有个人集锦</span>' : '');
+  const tableEl = document.getElementById('playerTableEl');
+  if (tableEl) tableEl.classList.toggle('expanded', playerTableExpanded);
+  const expandBtn = document.getElementById('tableExpandBtn');
+  if (expandBtn) expandBtn.textContent = playerTableExpanded ? '收起' : '更多数据';
   document.getElementById('tableHint').style.display = withHl.length ? 'block' : 'none';
   document.getElementById('playerHighlightChips').style.display = withHl.length ? 'flex' : 'none';
   document.getElementById('playerHighlightChips').innerHTML = withHl.map(p => {
@@ -1686,12 +1701,12 @@ function renderPlayerTable() {
       <td class="pts">${p.得分}</td>
       <td>${p.篮板 ?? '-'}</td>
       <td>${p.助攻 ?? '-'}</td>
-      <td>${p.抢断 ?? '-'}</td>
-      <td>${p.盖帽 ?? '-'}</td>
-      <td>${p.失误 ?? '-'}</td>
-      <td>${p.犯规 ?? '-'}</td>
+      <td class="col-extra">${p.抢断 ?? '-'}</td>
+      <td class="col-extra">${p.盖帽 ?? '-'}</td>
+      <td class="col-extra">${p.失误 ?? '-'}</td>
+      <td class="col-extra">${p.犯规 ?? '-'}</td>
       <td>${p.效率 ?? '-'}</td>
-      <td>${p.首发 ? '<span class="starter">✓</span>' : ''}</td>
+      <td class="col-extra">${p.首发 ? '<span class="starter">✓</span>' : ''}</td>
       <td class="hl-col">${hl}</td>
     </tr>`;
   }).join('');
@@ -1800,6 +1815,14 @@ function renderGameTable() {
       <td>${top ? top.球员 + ' <b>' + top.得分 + '</b>分' : '-'}</td>`;
     tbody.appendChild(tr);
   });
+}
+
+const tableExpandBtn = document.getElementById('tableExpandBtn');
+if (tableExpandBtn) {
+  tableExpandBtn.onclick = () => {
+    playerTableExpanded = !playerTableExpanded;
+    renderPlayerTable();
+  };
 }
 
 initBgm();
