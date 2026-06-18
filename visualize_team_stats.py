@@ -12,6 +12,7 @@ from threading import Timer
 
 import pandas as pd
 
+from media_utils import resolve_avatar_url
 from team_utils import get_player_keywords, get_team_keyword, load_config, match_team_name
 
 STAT_COLS = ["得分", "篮板", "助攻", "抢断", "盖帽", "失误", "犯规", "效率"]
@@ -98,6 +99,47 @@ def our_rows_for_game(
     return rows[rows["主客场"] == sides[0]]
 
 
+def opp_rows_for_game(
+    gdf: pd.DataFrame,
+    matchup: tuple[str, int, int, str] | None,
+    keywords: list[str],
+    focus_user_id: int | None = None,
+) -> pd.DataFrame:
+    side = resolve_our_side(matchup, keywords, gdf, focus_user_id)
+    if side and "主客场" in gdf.columns:
+        opp_side = "客场" if side == "主场" else "主场"
+        rows = gdf[gdf["主客场"] == opp_side]
+        if not rows.empty:
+            return rows
+    return gdf[~gdf["球队"].map(lambda n: match_team_name(n, keywords))]
+
+
+def _rows_to_players(rows: pd.DataFrame) -> list[dict]:
+    if rows.empty:
+        return []
+    player_cols = ["球员", "userId", *STAT_COLS]
+    if "avatarUrl" in rows.columns:
+        player_cols.append("avatarUrl")
+    if "首发" in rows.columns:
+        player_cols.append("首发")
+    players = (
+        rows.sort_values("得分", ascending=False)[player_cols]
+        .to_dict(orient="records")
+    )
+    for p in players:
+        if "userId" in p and p["userId"] is not None:
+            p["userId"] = int(p["userId"])
+        for col in STAT_COLS:
+            p[col] = int(p[col])
+        if "首发" in p:
+            p["首发"] = bool(p["首发"])
+        if p.get("avatarUrl"):
+            p["avatarUrl"] = resolve_avatar_url(str(p["avatarUrl"]))
+        elif "avatarUrl" in p:
+            del p["avatarUrl"]
+    return players
+
+
 def build_payload(df: pd.DataFrame, focus_user_id: int | None, team_keyword: str | None = None) -> dict:
     keywords = get_player_keywords() if team_keyword is None else get_player_keywords(
         {**load_config(), "team_keyword": team_keyword}
@@ -152,20 +194,9 @@ def build_payload(df: pd.DataFrame, focus_user_id: int | None, team_keyword: str
             our_rows.nlargest(5, "得分")[["球员", "得分", "篮板", "助攻"]]
             .to_dict(orient="records")
         )
-        player_cols = ["球员", "userId", *STAT_COLS]
-        if "首发" in our_rows.columns:
-            player_cols.append("首发")
-        players = (
-            our_rows.sort_values("得分", ascending=False)[player_cols]
-            .to_dict(orient="records")
-        )
-        for p in players:
-            if "userId" in p and p["userId"] is not None:
-                p["userId"] = int(p["userId"])
-            for col in STAT_COLS:
-                p[col] = int(p[col])
-            if "首发" in p:
-                p["首发"] = bool(p["首发"])
+        opp_rows = opp_rows_for_game(gdf, matchup, keywords, focus_user_id)
+        players = _rows_to_players(our_rows)
+        opp_players = _rows_to_players(opp_rows)
         games.append(
             {
                 "scheduleId": int(sid),
@@ -178,6 +209,7 @@ def build_payload(df: pd.DataFrame, focus_user_id: int | None, team_keyword: str
                 "win": our_score > opp_score,
                 "topScorers": top,
                 "players": players,
+                "oppPlayers": opp_players,
             }
         )
 
@@ -217,6 +249,7 @@ def render_dashboard_html(payload: dict, team_name: str = "中铁元湾篮球队
     html = html.replace("__LOSSES__", str(payload["losses"]))
     html = html.replace("__WIN_PCT__", str(win_pct))
     html = html.replace("__GEN_TIME__", updated)
+    html = html.replace("__CACHE_VER__", datetime.now().strftime("%Y%m%d%H%M"))
     html = html.replace("__DATA_JSON__", json.dumps(payload, ensure_ascii=False))
     return html
 

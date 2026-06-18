@@ -9,7 +9,7 @@ import pandas as pd
 from build_site import build_site
 from fetch_batch_schedule_stats import collect_team_ids, export_batch, filter_schedules, list_league_schedules
 from schedule_video import fetch_player_highlights_for_schedule, get_schedule_videos
-from team_utils import get_player_keywords, get_schedule_keyword, load_config, match_team_name, pick_schedule_side
+from team_utils import get_player_keywords, get_schedule_filter_keywords, get_schedule_keyword, load_config, match_team_name, pick_schedule_side
 from video_cache import (
     has_video,
     load_cache,
@@ -26,13 +26,17 @@ CSV_PATH = ROOT / "team_dashboard.csv"
 DOCS_DIR = ROOT / "docs"
 
 
-def _our_user_ids(df: pd.DataFrame, schedule_id: int, keywords: list[str]) -> list[int]:
+def _schedule_user_ids(df: pd.DataFrame, schedule_id: int) -> list[int]:
+    """一场比赛双方所有有效球员 userId（用于拉取个人集锦）。"""
     gdf = df[df["scheduleId"] == schedule_id]
     if gdf.empty or "userId" not in gdf.columns:
         return []
-    if "球队" in gdf.columns:
-        gdf = gdf[gdf["球队"].map(lambda n: match_team_name(str(n), keywords))]
-    return sorted({int(x) for x in gdf["userId"].dropna().unique()})
+    out: set[int] = set()
+    for x in gdf["userId"].dropna().unique():
+        uid = int(x)
+        if uid > 0:
+            out.add(uid)
+    return sorted(out)
 
 
 def main() -> int:
@@ -41,6 +45,7 @@ def main() -> int:
     league_id = cfg["league_id"]
     team_name = cfg.get("team_name", "中铁元湾篮球队")
     schedule_kw = get_schedule_keyword(cfg)
+    schedule_filter_kws = get_schedule_filter_keywords(cfg)
     player_keywords = get_player_keywords(cfg)
     team_keyword = cfg.get("team_keyword", "中铁")
     last_n = dash.get("last_n_games", 5)
@@ -67,7 +72,7 @@ def main() -> int:
         filter_kw["team_ids"] = ids
         print(f"  匹配 {len(ids)} 个历史 teamId（{schedule_kw}）")
     else:
-        filter_kw["team_name"] = schedule_kw
+        filter_kw["team_name"] = schedule_filter_kws
 
     matched = filter_schedules(schedules, **filter_kw)
     if not matched:
@@ -122,8 +127,8 @@ def main() -> int:
             else:
                 video_map[sid] = {}
 
-        print(f"  {sid} 拉取球员个人集锦 ...")
-        uids = _our_user_ids(df, sid, player_keywords)
+        print(f"  {sid} 拉取双方球员个人集锦 ...")
+        uids = _schedule_user_ids(df, sid)
         cached_phm = (cache.get("playerHighlights") or {}).get(str(sid)) or (cache.get("playerHighlights") or {}).get(sid) or {}
         cached_phm = {int(k): v for k, v in cached_phm.items()}
         try:
@@ -150,6 +155,13 @@ def main() -> int:
         video_map=video_map,
         player_highlight_map=player_highlight_map,
     )
+    try:
+        from open_dashboard import mirror_to_home
+
+        mirror = mirror_to_home(DOCS_DIR)
+        print(f"本地镜像已同步 -> {mirror}")
+    except Exception as exc:
+        print(f"本地镜像同步失败（可手动重启 open_dashboard.py）: {exc}")
     print("完成。")
     return 0
 

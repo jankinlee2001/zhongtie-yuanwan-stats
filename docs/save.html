@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>保存视频</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      background: #0a0f18; color: #fff; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    .box { max-width: 360px; width: 100%; text-align: center; }
+    .icon { font-size: 3rem; margin-bottom: 16px; }
+    h1 { font-size: 1.1rem; margin-bottom: 8px; }
+    p { font-size: .85rem; color: #94a3b8; line-height: 1.6; margin-bottom: 16px; }
+    .bar { height: 6px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; margin: 16px 0; }
+    .fill { height: 100%; width: 0; background: linear-gradient(90deg, #0ea5e9, #38bdf8); transition: width .3s; }
+    .btn {
+      display: block; width: 100%; padding: 14px; border: none; border-radius: 12px;
+      font-size: .92rem; font-weight: 700; cursor: pointer; margin-bottom: 10px; text-decoration: none;
+    }
+    .primary { background: linear-gradient(135deg, #ff6b2c, #e85d24); color: #fff; }
+    .secondary { background: rgba(56,189,248,.15); color: #7dd3fc; border: 1px solid rgba(56,189,248,.35); }
+    .err { color: #fb7185; }
+    .ok { color: #34d399; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon" id="icon">⏳</div>
+    <h1 id="title">正在准备视频</h1>
+    <p id="msg">请稍候，视频下载中…</p>
+    <div class="bar" id="barWrap"><div class="fill" id="fill"></div></div>
+    <button class="btn primary" id="shareBtn" type="button" style="display:none">保存到手机</button>
+    <a class="btn secondary" id="backBtn" href="index.html" style="display:none">返回看板</a>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    let url = params.get('u') || '';
+    const name = (params.get('n') || '视频').replace(/[\\/:*?"<>|]/g, '_');
+    if (url.startsWith('http://')) url = 'https://' + url.slice(7);
+
+    const title = document.getElementById('title');
+    const msg = document.getElementById('msg');
+    const fill = document.getElementById('fill');
+    const icon = document.getElementById('icon');
+    const shareBtn = document.getElementById('shareBtn');
+    const backBtn = document.getElementById('backBtn');
+    let savedBlob = null;
+
+    function setProgress(p) { fill.style.width = Math.min(100, p) + '%'; }
+
+    function triggerDownload(blob) {
+      const file = new File([blob], name + '.mp4', { type: 'video/mp4' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        shareBtn.style.display = 'block';
+        shareBtn.onclick = () => navigator.share({ files: [file], title: name }).catch(() => {});
+        title.textContent = '视频已准备好';
+        msg.innerHTML = '点下方按钮，选<strong>「存储到文件」</strong>或<strong>「存储视频」</strong>';
+        icon.textContent = '✅';
+        return true;
+      }
+      const u = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = u;
+      a.download = name + '.mp4';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(u), 5000);
+      return false;
+    }
+
+    async function run() {
+      if (!url) {
+        title.textContent = '缺少视频链接';
+        msg.textContent = '请返回看板重新操作';
+        icon.textContent = '❌';
+        backBtn.style.display = 'block';
+        return;
+      }
+      try {
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error('网络错误');
+        const total = +(resp.headers.get('content-length') || 0);
+        if (!resp.body || !total) {
+          savedBlob = await resp.blob();
+        } else {
+          const reader = resp.body.getReader();
+          const chunks = [];
+          let loaded = 0;
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            loaded += value.length;
+            setProgress(Math.round(loaded / total * 100));
+          }
+          savedBlob = new Blob(chunks, { type: 'video/mp4' });
+        }
+        setProgress(100);
+        const needShare = triggerDownload(savedBlob);
+        if (!needShare) {
+          title.textContent = '下载已开始';
+          msg.textContent = '请查看浏览器下载记录或通知栏';
+          icon.textContent = '✅';
+        }
+        backBtn.style.display = 'block';
+      } catch (e) {
+        title.textContent = '自动下载失败';
+        msg.innerHTML = '<span class="err">请返回看板，点「复制链接」后到浏览器打开</span>';
+        icon.textContent = '❌';
+        backBtn.style.display = 'block';
+      }
+    }
+    run();
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>保存视频</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      background: #0a0f18; color: #fff; min-height: 100vh; padding: 20px 16px 40px;
+    }
+    .back { color: #94a3b8; text-decoration: none; font-size: .85rem; display: inline-block; margin-bottom: 16px; }
+    h1 { font-size: 1.05rem; margin-bottom: 12px; }
+    .btn {
+      display: block; width: 100%; text-align: center; padding: 15px;
+      border-radius: 12px; font-size: .95rem; font-weight: 700; text-decoration: none;
+      border: none; margin-bottom: 10px; cursor: pointer;
+    }
+    .primary { background: linear-gradient(135deg, #ff6b2c, #e85d24); color: #fff; }
+    .secondary { background: rgba(56,189,248,.15); color: #7dd3fc; border: 1px solid rgba(56,189,248,.35); }
+    .tip {
+      margin-top: 16px; padding: 14px; border-radius: 12px; font-size: .82rem; line-height: 1.7;
+      background: rgba(255,107,44,.1); border: 1px solid rgba(255,107,44,.25); color: #fde8d8;
+    }
+    .ok { color: #34d399; font-size: .8rem; margin: 10px 0; display: none; }
+  </style>
+</head>
+<body>
+  <a class="back" href="index.html">← 返回看板</a>
+  <h1 id="title">保存视频</h1>
+  <button class="btn primary" id="openBtn" type="button">打开视频页面</button>
+  <button class="btn secondary" id="copyBtn" type="button">复制视频链接</button>
+  <p class="ok" id="copied">✓ 已复制，请粘贴到浏览器地址栏</p>
+  <div class="tip" id="tip"></div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    let url = params.get('u') || '';
+    const name = params.get('n') || '视频';
+    if (url.startsWith('http://')) url = 'https://' + url.slice(7);
+    document.getElementById('title').textContent = name;
+    const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+    const tip = document.getElementById('tip');
+    if (!url) {
+      tip.textContent = '未找到视频链接';
+    } else if (isWeChat) {
+      tip.innerHTML = '微信内请先点右上角「···」→「在浏览器打开」，再点「打开视频页面」。';
+    } else {
+      tip.textContent = '打开后：iPhone 点分享保存；Android 点菜单下载。';
+    }
+    document.getElementById('openBtn').onclick = () => { if (url) location.href = url; };
+    document.getElementById('copyBtn').onclick = async () => {
+      try { await navigator.clipboard.writeText(url); } catch {
+        const ta = document.createElement('textarea'); ta.value = url;
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      }
+      document.getElementById('copied').style.display = 'block';
+    };
+  </script>
+</body>
+</html>

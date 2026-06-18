@@ -12,7 +12,7 @@ import pandas as pd
 import requests
 
 from fetch_schedule_stats import APPKEY, get_schedule_data, get_schedule_info, players_to_rows
-from team_utils import get_player_keywords, get_schedule_keyword, is_internal_match, load_config, schedule_has_our_team
+from team_utils import get_player_keywords, get_schedule_keyword, is_internal_match, is_our_internal_match, load_config, schedule_has_our_team
 
 GATEWAY = "https://gatewayapi.woaolanqiu.cn"
 SECRET = "9ce3c5643a14fadf33a2b882"
@@ -94,8 +94,10 @@ def filter_schedules(
             if not schedule_has_our_team(home, away, names):
                 return False
             if exclude_internal:
-                kw = internal_keyword or (names[0] if len(names) == 1 else None)
+                kw = internal_keyword or (names[0] if isinstance(names, list) and len(names) == 1 else (names[0] if names else None))
                 if kw and is_internal_match(home, away, kw):
+                    return False
+                if is_our_internal_match(home, away, get_player_keywords()):
                     return False
         return True
 
@@ -164,7 +166,7 @@ def export_batch(
 
     df = pd.concat(frames, ignore_index=True)
     cols = [
-        "scheduleId", "比赛时间", "对阵", "球队", "主客场", "球员", "userId",
+        "scheduleId", "比赛时间", "对阵", "球队", "主客场", "球员", "userId", "avatarUrl",
         "得分", "篮板", "助攻", "抢断", "盖帽", "失误", "犯规", "效率", "首发",
     ]
     df = df[[c for c in cols if c in df.columns]]

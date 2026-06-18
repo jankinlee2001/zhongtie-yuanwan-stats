@@ -38,6 +38,7 @@ FIELD_MAP = {
     "efficiency": "效率",
     "isFirst": "首发",
     "isPlay": "上场",
+    "playerHeadPath": "avatarUrl",
 }
 
 

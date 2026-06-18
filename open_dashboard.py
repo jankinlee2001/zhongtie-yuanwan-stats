@@ -26,10 +26,10 @@ def ensure_dashboard() -> Path:
 def mirror_to_home(docs: Path) -> Path:
   """复制到用户目录（纯英文路径），避免中文路径导致浏览器打不开。"""
   MIRROR.mkdir(parents=True, exist_ok=True)
-  for name in ("index.html", "data.json"):
+  for name in ("index.html", "data.json", "save.html"):
     src = docs / name
     if src.exists():
-      (MIRROR / name).write_bytes(src.read_bytes())
+      shutil.copy2(src, MIRROR / name)
   assets = docs / "assets"
   if assets.is_dir():
     dst_assets = MIRROR / "assets"
@@ -59,7 +59,7 @@ def local_lan_ips() -> list[str]:
 
 
 def serve(directory: Path, port: int, *, host: str = "0.0.0.0") -> None:
-  local_url = f"http://127.0.0.1:{port}/index.html"
+  local_url = f"http://127.0.0.1:{port}/index.html?t={int(__import__('time').time())}"
 
   class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):

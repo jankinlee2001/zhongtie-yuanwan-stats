@@ -8,11 +8,26 @@ from pathlib import Path
 
 import pandas as pd
 
-from team_utils import get_team_keyword, load_config
+from media_utils import normalize_payload_media
+from team_utils import get_schedule_keyword, get_team_aliases, get_team_keyword, load_config
 from video_cache import load_cache, player_map_from_cache, video_map_from_cache
 from visualize_team_stats import build_payload, render_dashboard_html
 
 DOCS_DIR = Path("docs")
+
+
+def _perspective_teams(cfg: dict) -> list[dict]:
+    """看板统计视角：各分队/别名独立计算胜率。"""
+    seen: set[str] = set()
+    teams: list[dict] = []
+    primary = get_schedule_keyword(cfg)
+    teams.append({"label": "中铁元湾", "keyword": primary})
+    seen.add(primary)
+    for alias in get_team_aliases(cfg):
+        if alias not in seen:
+            teams.append({"label": alias, "keyword": alias})
+            seen.add(alias)
+    return teams
 
 
 def build_site(
@@ -49,8 +64,15 @@ def build_site(
                 uid = player.get("userId")
                 if uid in phm:
                     player.update(phm[uid])
+            for player in game.get("oppPlayers") or []:
+                uid = player.get("userId")
+                if uid in phm:
+                    player.update(phm[uid])
     payload["teamName"] = team_name
     payload["updatedAt"] = datetime.now().strftime("%Y-%m-%d %H:%M")
+    cfg = load_config()
+    payload["perspectiveTeams"] = _perspective_teams(cfg)
+    normalize_payload_media(payload)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "data.json").write_text(

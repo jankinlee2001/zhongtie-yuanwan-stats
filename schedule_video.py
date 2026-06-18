@@ -6,6 +6,7 @@ import time
 import requests
 
 from fetch_schedule_stats import APPKEY, APPAPI, sign
+from media_utils import normalize_player_highlight, normalize_video_entry
 
 
 def _get_json(path: str, params: dict, *, retries: int = 3, timeout: int = 25) -> dict:
@@ -59,12 +60,12 @@ def get_schedule_videos(schedule_id: int, our_team_id: int | None = None) -> dic
         highlight_url = highlights[0].get("url")
         cover_url = cover_url or highlights[0].get("coverUrl")
 
-    return {
+    return normalize_video_entry({
         "playbackUrl": playback_url,
         "highlightUrl": highlight_url,
         "coverUrl": cover_url,
         "partName": part_name,
-    }
+    })
 
 
 def get_user_personal_highlights(schedule_id: int, user_id: int) -> list[dict]:
@@ -90,7 +91,7 @@ def summarize_player_highlights(clips: list[dict]) -> dict | None:
         return None
     best = max(valid, key=lambda c: float(c.get("duration") or 0))
     ordered = sorted(valid, key=lambda c: float(c.get("duration") or 0), reverse=True)
-    return {
+    return normalize_player_highlight({
         "highlightUrl": best.get("url"),
         "highlightCover": best.get("coverUrl"),
         "highlightName": (best.get("name") or "个人集锦").strip(),
@@ -104,7 +105,7 @@ def summarize_player_highlights(clips: list[dict]) -> dict | None:
             }
             for c in ordered
         ],
-    }
+    })
 
 
 def fetch_player_highlights_for_schedule(schedule_id: int, user_ids: list[int]) -> dict[int, dict]:
