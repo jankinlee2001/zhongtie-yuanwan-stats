@@ -1164,6 +1164,30 @@ function remapGameForPerspective(g, keyword) {
       win: g.oppScore > g.ourScore,
     };
   }
+  if (onOur && onOpp) {
+    const ourNm = shortTeamName(g.ourTeam);
+    const oppNm = shortTeamName(g.opponent);
+    const ourHit = ourNm.includes(keyword) || String(g.ourTeam).includes(keyword);
+    const oppHit = oppNm.includes(keyword) || String(g.opponent).includes(keyword);
+    if (oppHit && !ourHit) {
+      const players = g.oppPlayers || [];
+      const oppPlayers = g.players || g.topScorers || [];
+      const topScorers = players.slice().sort((a, b) => (b.得分 || 0) - (a.得分 || 0)).slice(0, 5);
+      return {
+        ...g,
+        ourTeam: g.opponent,
+        opponent: g.ourTeam,
+        ourScore: g.oppScore,
+        oppScore: g.ourScore,
+        players,
+        oppPlayers,
+        topScorers,
+        ourTeamStats: g.oppTeamStats,
+        oppTeamStats: g.ourTeamStats,
+        win: g.oppScore > g.ourScore,
+      };
+    }
+  }
   const players = g.players || g.topScorers || [];
   return { ...g, players, topScorers: g.topScorers || players.slice(0, 5), win: g.ourScore > g.oppScore };
 }
@@ -1212,9 +1236,11 @@ function maxPoolCount() {
 }
 
 function computeTopPlayers(vgames) {
+  const keyword = currentPerspective().keyword;
   const map = {};
   vgames.forEach(g => {
     (g.players || []).forEach(p => {
+      if (p.team && !teamMatchesKeyword(p.team, keyword)) return;
       const name = p.球员;
       if (!map[name]) map[name] = { 球员: name, 得分: 0, 篮板: 0, 助攻: 0, 抢断: 0 };
       map[name].得分 += p.得分 || 0;

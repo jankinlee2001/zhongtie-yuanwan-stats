@@ -122,11 +122,15 @@ def _rows_to_players(rows: pd.DataFrame) -> list[dict]:
         player_cols.append("avatarUrl")
     if "首发" in rows.columns:
         player_cols.append("首发")
+    if "球队" in rows.columns:
+        player_cols.insert(0, "球队")
     players = (
         rows.sort_values("得分", ascending=False)[player_cols]
         .to_dict(orient="records")
     )
     for p in players:
+        if "球队" in p:
+            p["team"] = str(p.pop("球队"))
         if "userId" in p and p["userId"] is not None:
             p["userId"] = int(p["userId"])
         for col in STAT_COLS:
