@@ -14325,37 +14325,7 @@
           "效率": 10,
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": false,
-          "team": "银溪墅府614",
-          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fc34911b5001834807192524443/playlist.f9.mp4",
-          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fc34911b5001834807192524443/coverBySnapshot/coverBySnapshot_10_0.jpg",
-          "highlightName": "抢断",
-          "highlightCount": 4,
-          "clips": [
-            {
-              "name": "抢断",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fc34911b5001834807192524443/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fc34911b5001834807192524443/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "助攻",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/12a9bae95001834807199363377/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/12a9bae95001834807199363377/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f5237e7a5001834807192215157/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f5237e7a5001834807192215157/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "3分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1ba36b275001834807199712827/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1ba36b275001834807199712827/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            }
-          ]
+          "team": "银溪墅府614"
         },
         {
           "球员": "陈国良",
@@ -23001,7 +22971,7 @@
   "wins": 6,
   "losses": 9,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-07-11 15:02",
+  "updatedAt": "2026-07-11 16:03",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",
