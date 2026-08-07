@@ -19323,37 +19323,7 @@
           "效率": 6,
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": false,
-          "team": "魔紫仙境626",
-          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9fcf26a65001834808873378413/playlist.f9.mp4",
-          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9fcf26a65001834808873378413/coverBySnapshot/coverBySnapshot_10_0.jpg",
-          "highlightName": "助攻",
-          "highlightCount": 4,
-          "clips": [
-            {
-              "name": "助攻",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9fcf26a65001834808873378413/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9fcf26a65001834808873378413/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "助攻",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/8de208795001834808876699198/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/8de208795001834808876699198/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "助攻",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45489dcb5001834808875857081/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45489dcb5001834808875857081/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b2b1f1855001834808880913680/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b2b1f1855001834808880913680/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            }
-          ]
+          "team": "魔紫仙境626"
         },
         {
           "球员": "灰色",
@@ -30113,7 +30083,7 @@
   "wins": 9,
   "losses": 10,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-08-07 15:08",
+  "updatedAt": "2026-08-07 16:05",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",
