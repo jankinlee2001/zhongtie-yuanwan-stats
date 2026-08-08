@@ -8632,7 +8632,25 @@
           "效率": 2,
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": false,
-          "team": "季中赛1队"
+          "team": "季中赛1队",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e68d9c1a5001834805412177535/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e68d9c1a5001834805412177535/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 2,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e68d9c1a5001834805412177535/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e68d9c1a5001834805412177535/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9936a6465001834805411123210/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9936a6465001834805411123210/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
         },
         {
           "球员": "刘有森",
@@ -9408,7 +9426,55 @@
           "效率": 10,
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": false,
-          "team": "季中赛2队"
+          "team": "季中赛2队",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4b94277e5001834805420983616/60a787313787714c8909206c.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/511e19345001834805410355146/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "何志昆个人集锦",
+          "highlightCount": 7,
+          "clips": [
+            {
+              "name": "何志昆个人集锦",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4b94277e5001834805420983616/60a787313787714c8909206c.mp4",
+              "duration": 77.2,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/511e19345001834805410355146/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9de21cec5001834805411325500/14b05e462d376eba0223d12a.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/96e31ef25001834805411026148/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/da75d0985001834805408923601/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/da75d0985001834805408923601/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9927f69d5001834805411119975/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9927f69d5001834805411119975/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/556b54105001834805410500942/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/556b54105001834805410500942/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/22a44d625001834805409708717/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/22a44d625001834805409708717/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3590d5775001834805413230829/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3590d5775001834805413230829/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
         },
         {
           "球员": "王亚闽",
@@ -30047,7 +30113,7 @@
   "wins": 9,
   "losses": 10,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-08-08 10:41",
+  "updatedAt": "2026-08-08 12:58",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",
