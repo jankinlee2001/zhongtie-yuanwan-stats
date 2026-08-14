@@ -3352,79 +3352,7 @@
           "效率": 22,
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": true,
-          "team": "浪里白条515",
-          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e12b0d825145403726803781931/a9b71312b4b222ebdf4e8ee3.mp4",
-          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0a08cd725145403726794846675/coverBySnapshot/coverBySnapshot_10_0.jpg",
-          "highlightName": "谢斌个人集锦",
-          "highlightCount": 11,
-          "clips": [
-            {
-              "name": "谢斌个人集锦",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e12b0d825145403726803781931/a9b71312b4b222ebdf4e8ee3.mp4",
-              "duration": 126.5,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0a08cd725145403726794846675/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ee7ae3a65145403726797720741/00f2d4c8f84a94ff346d46cf.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9d2279085145403726796567240/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0a08cd725145403726794846675/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0a08cd725145403726794846675/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/54aee9755145403726795748289/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/54aee9755145403726795748289/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f0abdb8b5145403726797800765/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f0abdb8b5145403726797800765/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d4f18a975145403726803203652/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d4f18a975145403726803203652/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/51160c5f5145403726866705122/playlist.f9.mp4",
-              "duration": 12.1,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/51160c5f5145403726866705122/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/220dc5ec5145403726862935584/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/220dc5ec5145403726862935584/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f31acd655145403726800465578/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f31acd655145403726800465578/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/394b37fe5145403726801194067/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/394b37fe5145403726801194067/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            },
-            {
-              "name": "2分命中",
-              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e4acd4465145403726868493240/playlist.f9.mp4",
-              "duration": 12.0,
-              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e4acd4465145403726868493240/coverBySnapshot/coverBySnapshot_10_0.jpg"
-            }
-          ]
+          "team": "浪里白条515"
         },
         {
           "球员": "陈汉宗",
@@ -31699,7 +31627,7 @@
   "wins": 9,
   "losses": 11,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-08-14 15:06",
+  "updatedAt": "2026-08-14 16:01",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",
