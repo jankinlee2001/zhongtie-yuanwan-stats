@@ -40912,16 +40912,16 @@
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": false,
           "team": "中铁元湾1007",
-          "highlightUrl": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261008141230.mp4",
-          "highlightCover": "https://live-clip-cover-1317148588.cos.ap-chengdu.myqcloud.com/covers/woaoClipper_y-20261007183023-s_2418959_1_1-pro-10776037-_5i5jnf.jpg",
+          "highlightUrl": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261009170329122-2418959-USER-u19593311-4203686.mp4",
+          "highlightCover": null,
           "highlightName": "王诗阳个人集锦",
           "highlightCount": 16,
           "clips": [
             {
               "name": "王诗阳个人集锦",
-              "url": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261008141230.mp4",
-              "duration": 156.0,
-              "coverUrl": "https://live-clip-cover-1317148588.cos.ap-chengdu.myqcloud.com/covers/woaoClipper_y-20261007183023-s_2418959_1_1-pro-10776037-_5i5jnf.jpg"
+              "url": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261009170329122-2418959-USER-u19593311-4203686.mp4",
+              "duration": 108.0,
+              "coverUrl": null
             },
             {
               "name": "2分命中",
@@ -41550,16 +41550,16 @@
           "avatarUrl": "https://www.woaoo.net/nan",
           "首发": false,
           "team": "新景外滩1007",
-          "highlightUrl": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261008141230.mp4",
-          "highlightCover": "https://live-clip-cover-1317148588.cos.ap-chengdu.myqcloud.com/covers/woaoClipper_y-20261007182859-s_2418959_1_1-pro-10776030-_qdgxsd.jpg",
+          "highlightUrl": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261009170328866-2418959-USER-u19678898-4203688.mp4",
+          "highlightCover": null,
           "highlightName": "66个人集锦",
           "highlightCount": 19,
           "clips": [
             {
               "name": "66个人集锦",
-              "url": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261008141230.mp4",
-              "duration": 168.0,
-              "coverUrl": "https://live-clip-cover-1317148588.cos.ap-chengdu.myqcloud.com/covers/woaoClipper_y-20261007182859-s_2418959_1_1-pro-10776030-_qdgxsd.jpg"
+              "url": "https://1500068983.eo-vod1.com/bam8ug6nyolc0ab/reels/s_2418959_1_1-pro-reel-1920x1080-20261009170328866-2418959-USER-u19678898-4203688.mp4",
+              "duration": 96.0,
+              "coverUrl": null
             },
             {
               "name": "2分命中",
@@ -42360,6 +42360,2009 @@
       "highlightUrl": null,
       "coverUrl": null,
       "partName": null
+    },
+    {
+      "scheduleId": 2419990,
+      "date": "2026-10-09",
+      "matchup": "浪里白条1009 148:151 魔紫仙境1009",
+      "ourTeam": "浪里白条1009",
+      "opponent": "魔紫仙境1009",
+      "ourScore": 148,
+      "oppScore": 151,
+      "win": false,
+      "topScorers": [
+        {
+          "球员": "吴金潮",
+          "得分": 51,
+          "篮板": 14,
+          "助攻": 11
+        },
+        {
+          "球员": "张加洪",
+          "得分": 34,
+          "篮板": 5,
+          "助攻": 2
+        },
+        {
+          "球员": "张梓辰",
+          "得分": 18,
+          "篮板": 7,
+          "助攻": 1
+        },
+        {
+          "球员": "卢庆贤",
+          "得分": 14,
+          "篮板": 14,
+          "助攻": 4
+        },
+        {
+          "球员": "曾瑞聪",
+          "得分": 8,
+          "篮板": 3,
+          "助攻": 0
+        }
+      ],
+      "players": [
+        {
+          "球员": "吴金潮",
+          "userId": 324467,
+          "得分": 51,
+          "篮板": 14,
+          "助攻": 11,
+          "抢断": 3,
+          "盖帽": 1,
+          "失误": 4,
+          "犯规": 5,
+          "效率": 61,
+          "avatarUrl": "https://www.woaoo.net/upload/bskt/player/headPath/20211231/7628fbda-e333-4f58-a6d8-614b12678557.JPG",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b812805e5001834823490442457/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b812805e5001834823490442457/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 39,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b812805e5001834823490442457/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b812805e5001834823490442457/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89e295aa5001834823489838146/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89e295aa5001834823489838146/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b8139d205001834823490444538/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b8139d205001834823490444538/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9daf023f5001834823479841115/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9daf023f5001834823479841115/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fff2aea85001834823484477672/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fff2aea85001834823484477672/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdace43e5001834823484382721/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdace43e5001834823484382721/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/01792ae65001834823477754445/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/01792ae65001834823477754445/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813a5c15001834823490444746/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813a5c15001834823490444746/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ed62aa025001834823487708144/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ed62aa025001834823487708144/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/718229e85001834823482954656/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/718229e85001834823482954656/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/61634b885001834823482282995/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/61634b885001834823482282995/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9bf08f5c5001834823486531181/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9bf08f5c5001834823486531181/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813aa635001834823490444874/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813aa635001834823490444874/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/07615d9c5001834823491541553/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/07615d9c5001834823491541553/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07d29bb5001834823480646332/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07d29bb5001834823480646332/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ed7064245001834823487710279/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ed7064245001834823487710279/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/460fe75c5001834823485194114/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/460fe75c5001834823485194114/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/460fe79a5001834823485194130/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/460fe79a5001834823485194130/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdad53a65001834823484383089/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdad53a65001834823484383089/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9515417c5001834823486251029/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9515417c5001834823486251029/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/c9c36de65001834823480381968/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/c9c36de65001834823480381968/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89f28e0a5001834823489844572/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89f28e0a5001834823489844572/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b9d442275001834823483758517/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b9d442275001834823483758517/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1677e89d5001834823481346255/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1677e89d5001834823481346255/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b451d2395001834823537014626/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b451d2395001834823537014626/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ed623f8a5001834823487707936/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ed623f8a5001834823487707936/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e431281e5001834823487326333/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e431281e5001834823487326333/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b367b77d5001834823490241918/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b367b77d5001834823490241918/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/432b295c5001834823485016661/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/432b295c5001834823485016661/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/02935f345001834823491322350/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/02935f345001834823491322350/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45c80db85001834823485155032/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45c80db85001834823485155032/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/008599c45001834823491260986/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/008599c45001834823491260986/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813951c5001834823490444372/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813951c5001834823490444372/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/af06339a5001834823490082192/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/af06339a5001834823490082192/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9bf2ccc05001834823486535415/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9bf2ccc05001834823486535415/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ac07c99d5001834823483181706/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ac07c99d5001834823483181706/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9dae75bb5001834823479840103/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9dae75bb5001834823479840103/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9bf09b1b5001834823486531405/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9bf09b1b5001834823486531405/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2606a4bf5001834823535513963/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2606a4bf5001834823535513963/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "张加洪",
+          "userId": 3528713,
+          "得分": 34,
+          "篮板": 5,
+          "助攻": 2,
+          "抢断": 4,
+          "盖帽": 2,
+          "失误": 4,
+          "犯规": 6,
+          "效率": 29,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/49491b7a135e1bedea7fb2e01aa45d65.png",
+          "首发": true,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/35c068c55001834823488510848/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/35c068c55001834823488510848/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "抢断",
+          "highlightCount": 23,
+          "clips": [
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/35c068c55001834823488510848/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/35c068c55001834823488510848/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/dbf1a5b75001834823534692120/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/dbf1a5b75001834823534692120/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1ff26a2a5001834823481769484/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1ff26a2a5001834823481769484/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdacdb9d5001834823484382513/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdacdb9d5001834823484382513/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d6dc84de5001834823534435861/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d6dc84de5001834823534435861/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9daf023f5001834823479841115/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9daf023f5001834823479841115/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fff2aea85001834823484477672/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fff2aea85001834823484477672/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf636025001834823483172585/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf636025001834823483172585/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/01792ae65001834823477754445/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/01792ae65001834823477754445/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/61634b885001834823482282995/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/61634b885001834823482282995/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/658db5525001834823482410107/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/658db5525001834823482410107/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9bf08f5c5001834823486531181/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9bf08f5c5001834823486531181/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07d2a855001834823480646396/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07d2a855001834823480646396/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07e4fe65001834823480648683/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07e4fe65001834823480648683/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89f28e0a5001834823489844572/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89f28e0a5001834823489844572/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/687805a55001834823482598154/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/687805a55001834823482598154/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/82a880df5001834823489500590/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/82a880df5001834823489500590/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/73042c0c5001834823536519987/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/73042c0c5001834823536519987/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07d257e5001834823480646236/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07d257e5001834823480646236/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e44107405001834823487332185/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e44107405001834823487332185/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/02935f345001834823491322350/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/02935f345001834823491322350/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45c685fa5001834823485152703/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45c685fa5001834823485152703/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/af06339a5001834823490082192/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/af06339a5001834823490082192/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "张梓辰",
+          "userId": 2649122,
+          "得分": 18,
+          "篮板": 7,
+          "助攻": 1,
+          "抢断": 0,
+          "盖帽": 1,
+          "失误": 2,
+          "犯规": 1,
+          "效率": 13,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/643112563a2c1f5f017cfd7f8a50a2e2",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/98be0a025001834823479604661/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/98be0a025001834823479604661/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 11,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/98be0a025001834823479604661/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/98be0a025001834823479604661/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b81156535001834823490440034/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b81156535001834823490440034/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e2a9dfc45001834823534954393/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e2a9dfc45001834823534954393/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2000a6bd5001834823481772306/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2000a6bd5001834823481772306/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/91f714135001834823479338899/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/91f714135001834823479338899/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3107d62c5001834823488307887/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3107d62c5001834823488307887/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2fc9653e5001834823535976310/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2fc9653e5001834823535976310/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0eaaebdb5001834823474225408/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0eaaebdb5001834823474225408/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdad53a65001834823484383089/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdad53a65001834823484383089/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45c71be85001834823485153986/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45c71be85001834823485153986/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/432b25845001834823485016597/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/432b25845001834823485016597/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "卢庆贤",
+          "userId": 3607547,
+          "得分": 14,
+          "篮板": 14,
+          "助攻": 4,
+          "抢断": 2,
+          "盖帽": 0,
+          "失误": 2,
+          "犯规": 5,
+          "效率": 26,
+          "avatarUrl": "https://www.woaoo.net/upload/sns/user/20210108/d3efbbb1c38641f58d37f43bd838cd9c.png",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9dae98cf5001834823479840987/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9dae98cf5001834823479840987/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "抢断",
+          "highlightCount": 13,
+          "clips": [
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9dae98cf5001834823479840987/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9dae98cf5001834823479840987/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9daefe025001834823479841019/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9daefe025001834823479841019/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9514cedf5001834823486250645/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9514cedf5001834823486250645/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1f1821975001834823535221725/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1f1821975001834823535221725/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e4ac7ca05001834823487390037/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e4ac7ca05001834823487390037/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4ec478885001834823485509459/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4ec478885001834823485509459/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/7182a8df5001834823482955304/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/7182a8df5001834823482955304/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07d257e5001834823480646236/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07d257e5001834823480646236/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/02935f995001834823491322382/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/02935f995001834823491322382/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/59629c725001834823492795698/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/59629c725001834823492795698/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1f189cd55001834823535222317/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1f189cd55001834823535222317/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2606a4bf5001834823535513963/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2606a4bf5001834823535513963/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e2a9f92b5001834823534954985/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e2a9f92b5001834823534954985/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "曾瑞聪",
+          "userId": 3607521,
+          "得分": 8,
+          "篮板": 3,
+          "助攻": 0,
+          "抢断": 0,
+          "盖帽": 2,
+          "失误": 1,
+          "犯规": 4,
+          "效率": 7,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/49491b7a135e1bedea7fb2e01aa45d65.png",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5a4535001834823483171400/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5a4535001834823483171400/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 6,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5a4535001834823483171400/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5a4535001834823483171400/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/6153ecac5001834823482277896/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/6153ecac5001834823482277896/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/68781b725001834823482598698/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/68781b725001834823482598698/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5b6265001834823483171869/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5b6265001834823483171869/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4ec2d7e35001834823485506574/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4ec2d7e35001834823485506574/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdad70c35001834823484383734/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdad70c35001834823484383734/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "廖宗贤",
+          "userId": 3583528,
+          "得分": 7,
+          "篮板": 3,
+          "助攻": 1,
+          "抢断": 0,
+          "盖帽": 1,
+          "失误": 1,
+          "犯规": 0,
+          "效率": 1,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/87b309fc01b3a9cf06d88f8e5e8b0457",
+          "首发": true,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5a4535001834823483171400/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5a4535001834823483171400/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 5,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5a4535001834823483171400/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5a4535001834823483171400/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/98be0a025001834823479604661/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/98be0a025001834823479604661/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1f1821975001834823535221725/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1f1821975001834823535221725/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813aa635001834823490444874/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813aa635001834823490444874/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/718084e35001834823482951663/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/718084e35001834823482951663/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "黄贵雄",
+          "userId": 3956856,
+          "得分": 6,
+          "篮板": 10,
+          "助攻": 12,
+          "抢断": 4,
+          "盖帽": 0,
+          "失误": 4,
+          "犯规": 3,
+          "效率": 16,
+          "avatarUrl": "https://www.woaoo.net/upload/bskt/player/headPath/20201230/8102024b-2d93-4d3e-b2e1-8815b2a70101.JPG",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/6153ecac5001834823482277896/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/6153ecac5001834823482277896/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 19,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/6153ecac5001834823482277896/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/6153ecac5001834823482277896/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdace43e5001834823484382721/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdace43e5001834823484382721/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/658db1535001834823482410027/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/658db1535001834823482410027/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813a5c15001834823490444746/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813a5c15001834823490444746/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e43124255001834823487326259/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e43124255001834823487326259/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ed705ab95001834823487710007/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ed705ab95001834823487710007/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b81290fd5001834823490442825/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b81290fd5001834823490442825/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/718229e85001834823482954656/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/718229e85001834823482954656/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/658db5525001834823482410107/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/658db5525001834823482410107/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fe1119c05001834823491149445/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fe1119c05001834823491149445/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/68781b725001834823482598698/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/68781b725001834823482598698/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/460fe79a5001834823485194130/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/460fe79a5001834823485194130/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/432b25845001834823485016597/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/432b25845001834823485016597/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/73042c0c5001834823536519987/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/73042c0c5001834823536519987/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/432b295c5001834823485016661/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/432b295c5001834823485016661/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45c685fa5001834823485152703/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45c685fa5001834823485152703/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/02935f995001834823491322382/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/02935f995001834823491322382/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9bf09b1b5001834823486531405/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9bf09b1b5001834823486531405/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1f189cd55001834823535222317/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1f189cd55001834823535222317/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "王亚闽",
+          "userId": 3607518,
+          "得分": 4,
+          "篮板": 7,
+          "助攻": 1,
+          "抢断": 0,
+          "盖帽": 1,
+          "失误": 1,
+          "犯规": 5,
+          "效率": 10,
+          "avatarUrl": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJRxMMfLJTpHLsTMLJlGYswW2g6CUad7ic8kyzXcAn3xrOQuMx87LmNjH3Kev8gAw3zZpgZPGQrMg/132",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2c819b5a5001834823488127203/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2c819b5a5001834823488127203/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 4,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2c819b5a5001834823488127203/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2c819b5a5001834823488127203/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ad591e595001834823476430730/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ad591e595001834823476430730/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/91f70ea75001834823479338707/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/91f70ea75001834823479338707/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4ec2d7e35001834823485506574/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4ec2d7e35001834823485506574/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "徐振南",
+          "userId": 3583343,
+          "得分": 3,
+          "篮板": 9,
+          "助攻": 4,
+          "抢断": 3,
+          "盖帽": 0,
+          "失误": 0,
+          "犯规": 0,
+          "效率": 1,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/65edc885ebfd71dd922b53e61f7ea489",
+          "首发": true,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/dbf1a5b75001834823534692120/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/dbf1a5b75001834823534692120/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 8,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/dbf1a5b75001834823534692120/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/dbf1a5b75001834823534692120/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/80bcea6e5001834823472779478/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/80bcea6e5001834823472779478/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9daefe025001834823479841019/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9daefe025001834823479841019/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e44107025001834823487332169/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e44107025001834823487332169/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07d2a855001834823480646396/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07d2a855001834823480646396/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1677e89d5001834823481346255/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1677e89d5001834823481346255/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/7182a8df5001834823482955304/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/7182a8df5001834823482955304/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/91f712e45001834823479338803/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/91f712e45001834823479338803/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "何志昆",
+          "userId": 3607616,
+          "得分": 3,
+          "篮板": 10,
+          "助攻": 9,
+          "抢断": 5,
+          "盖帽": 0,
+          "失误": 4,
+          "犯规": 5,
+          "效率": 18,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/e8dbf1c3b524c6b6ecfbc4d2ff0ab2bd",
+          "首发": false,
+          "team": "浪里白条1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdacdb9d5001834823484382513/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdacdb9d5001834823484382513/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 15,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fdacdb9d5001834823484382513/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fdacdb9d5001834823484382513/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d6dc84de5001834823534435861/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d6dc84de5001834823534435861/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9514cedf5001834823486250645/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9514cedf5001834823486250645/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f61629865001834823477291755/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f61629865001834823477291755/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2c819b5a5001834823488127203/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2c819b5a5001834823488127203/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3107d62c5001834823488307887/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3107d62c5001834823488307887/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07d29bb5001834823480646332/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07d29bb5001834823480646332/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e4ac7ca05001834823487390037/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e4ac7ca05001834823487390037/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45c80ddf5001834823485155048/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45c80ddf5001834823485155048/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/80f9fe695001834823489497270/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/80f9fe695001834823489497270/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b9d44f2c5001834823483758837/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b9d44f2c5001834823483758837/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/460fe75c5001834823485194114/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/460fe75c5001834823485194114/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/80f98eea5001834823489496902/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/80f98eea5001834823489496902/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813951c5001834823490444372/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813951c5001834823490444372/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9dae75bb5001834823479840103/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9dae75bb5001834823479840103/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        }
+      ],
+      "oppPlayers": [
+        {
+          "球员": "林沛",
+          "userId": 2319625,
+          "得分": 42,
+          "篮板": 9,
+          "助攻": 8,
+          "抢断": 1,
+          "盖帽": 0,
+          "失误": 5,
+          "犯规": 2,
+          "效率": 34,
+          "avatarUrl": "https://www.woaoo.net/nan",
+          "首发": true,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b81322035001834823490443956/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b81322035001834823490443956/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 30,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b81322035001834823490443956/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b81322035001834823490443956/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e29a95685001834823534949735/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e29a95685001834823534949735/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4f6ba0e25001834823492306469/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4f6ba0e25001834823492306469/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45c7a37e5001834823485154840/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45c7a37e5001834823485154840/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f6161d245001834823477291483/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f6161d245001834823477291483/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b367b37e5001834823490241838/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b367b37e5001834823490241838/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89f2926e5001834823489844684/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89f2926e5001834823489844684/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/53ed86d65001834823485779896/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/53ed86d65001834823485779896/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/26067eb85001834823535513083/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/26067eb85001834823535513083/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/487dbf5a5001834823492015725/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/487dbf5a5001834823492015725/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/809d6bab5001834823489443857/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/809d6bab5001834823489443857/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f617d2635001834823477294812/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f617d2635001834823477294812/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b8115f595001834823490440274/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b8115f595001834823490440274/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/28ee216d5001834823535696479/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/28ee216d5001834823535696479/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/659077dd5001834823482415239/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/659077dd5001834823482415239/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3116023b5001834823488310345/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3116023b5001834823488310345/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/8307eeb35001834823489559668/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/8307eeb35001834823489559668/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/80ca027a5001834823472780070/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/80ca027a5001834823472780070/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9bf020e55001834823486530893/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9bf020e55001834823486530893/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/718073df5001834823482951263/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/718073df5001834823482951263/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d6dc89425001834823534435973/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d6dc89425001834823534435973/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0625a9035001834823477958310/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0625a9035001834823477958310/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4c0a7d865001834823478641377/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4c0a7d865001834823478641377/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813a2275001834823490444698/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813a2275001834823490444698/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3ce7e64a5001834823488837760/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3ce7e64a5001834823488837760/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b45245f55001834823537015090/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b45245f55001834823537015090/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d07e4ba95001834823480648587/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d07e4ba95001834823480648587/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/063484ed5001834823477962685/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/063484ed5001834823477962685/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1ff27a645001834823481769820/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1ff27a645001834823481769820/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4c0a8e635001834823478641761/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4c0a8e635001834823478641761/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "林坤杰",
+          "userId": 3608133,
+          "得分": 38,
+          "篮板": 12,
+          "助攻": 3,
+          "抢断": 1,
+          "盖帽": 0,
+          "失误": 3,
+          "犯规": 5,
+          "效率": 34,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/sns/user/20210109ee5f28725f8f41269f4aed310cc92368.JPEG",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2001377c5001834823481773412/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2001377c5001834823481773412/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 18,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2001377c5001834823481773412/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2001377c5001834823481773412/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/61634b235001834823482282963/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/61634b235001834823482282963/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/487dbffd5001834823492015773/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/487dbffd5001834823492015773/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/d6dd001c5001834823534436453/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/d6dd001c5001834823534436453/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4ec485015001834823485509731/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4ec485015001834823485509731/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0fc2863c5001834823481089601/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0fc2863c5001834823481089601/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f8bd6e7d5001834823484148423/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f8bd6e7d5001834823484148423/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/718231bf5001834823482954800/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/718231bf5001834823482954800/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/809d704d5001834823489443985/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/809d704d5001834823489443985/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e2357a865001834823487274915/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e2357a865001834823487274915/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0085ff355001834823491261034/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0085ff355001834823491261034/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fccd30c75001834823477551388/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fccd30c75001834823477551388/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/9da16f945001834823479839975/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/9da16f945001834823479839975/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf628375001834823483172205/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf628375001834823483172205/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0fc26d1c5001834823481089034/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0fc26d1c5001834823481089034/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1ff27a645001834823481769820/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1ff27a645001834823481769820/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/ac07cdda5001834823483181802/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/ac07cdda5001834823483181802/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2000b4655001834823481772674/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2000b4655001834823481772674/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "张加清",
+          "userId": 3583661,
+          "得分": 14,
+          "篮板": 2,
+          "助攻": 0,
+          "抢断": 1,
+          "盖帽": 0,
+          "失误": 0,
+          "犯规": 2,
+          "效率": 4,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/760606ba7788b5c4181dbbbde4db0a89",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/53ed86d65001834823485779896/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/53ed86d65001834823485779896/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 8,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/53ed86d65001834823485779896/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/53ed86d65001834823485779896/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/02935b355001834823491322270/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/02935b355001834823491322270/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f617d2635001834823477294812/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f617d2635001834823477294812/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/aef7f0ba5001834823490079114/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/aef7f0ba5001834823490079114/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e43120265001834823487326179/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e43120265001834823487326179/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/063484ed5001834823477962685/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/063484ed5001834823477962685/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0085999d5001834823491260970/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0085999d5001834823491260970/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/063488495001834823477962717/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/063488495001834823477962717/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "连志辉",
+          "userId": 3607487,
+          "得分": 12,
+          "篮板": 20,
+          "助攻": 2,
+          "抢断": 1,
+          "盖帽": 0,
+          "失误": 0,
+          "犯规": 2,
+          "效率": 29,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/sns/user/20210115d5b01037f8d74e8da2781b0d5b9b493d.JPEG",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3107c85d5001834823488307503/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3107c85d5001834823488307503/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 9,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3107c85d5001834823488307503/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3107c85d5001834823488307503/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89e299825001834823489838210/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89e299825001834823489838210/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2001377c5001834823481773412/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2001377c5001834823481773412/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/808e83825001834823489439222/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/808e83825001834823489439222/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/658dba325001834823482410251/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/658dba325001834823482410251/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/659004db5001834823482414823/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/659004db5001834823482414823/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2fc8ee8b5001834823535975846/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2fc8ee8b5001834823535975846/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4c0a7d865001834823478641377/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4c0a7d865001834823478641377/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/433a72d95001834823485021257/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/433a72d95001834823485021257/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "郑民",
+          "userId": 10074064,
+          "得分": 11,
+          "篮板": 3,
+          "助攻": 3,
+          "抢断": 0,
+          "盖帽": 1,
+          "失误": 2,
+          "犯规": 1,
+          "效率": 5,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/49491b7a135e1bedea7fb2e01aa45d65.png",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/433a6e375001834823485021129/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/433a6e375001834823485021129/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "助攻",
+          "highlightCount": 9,
+          "clips": [
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/433a6e375001834823485021129/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/433a6e375001834823485021129/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/53ece0ce5001834823485778286/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/53ece0ce5001834823485778286/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/02935b355001834823491322270/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/02935b355001834823491322270/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/487dbf5a5001834823492015725/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/487dbf5a5001834823492015725/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/8307eeb35001834823489559668/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/8307eeb35001834823489559668/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1f181d5a5001834823535221629/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1f181d5a5001834823535221629/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b813a2275001834823490444698/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b813a2275001834823490444698/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e43120265001834823487326179/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e43120265001834823487326179/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fe1110ba5001834823491149205/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fe1110ba5001834823491149205/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "陆正春",
+          "userId": 4956274,
+          "得分": 10,
+          "篮板": 16,
+          "助攻": 1,
+          "抢断": 1,
+          "盖帽": 1,
+          "失误": 0,
+          "犯规": 8,
+          "效率": 24,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/27f5da879ea4293a792da82754a59f1c",
+          "首发": true,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/433a6e375001834823485021129/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/433a6e375001834823485021129/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "3分命中",
+          "highlightCount": 7,
+          "clips": [
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/433a6e375001834823485021129/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/433a6e375001834823485021129/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/718231bf5001834823482954800/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/718231bf5001834823482954800/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45b70dda5001834823485147024/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45b70dda5001834823485147024/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/1ed9bf835001834823474903485/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/1ed9bf835001834823474903485/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "3分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89e2af915001834823489838774/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89e2af915001834823489838774/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/dbf353625001834823534695326/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/dbf353625001834823534695326/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/4ec2df7c5001834823485506702/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/4ec2df7c5001834823485506702/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "邱烨林",
+          "userId": 7581160,
+          "得分": 10,
+          "篮板": 11,
+          "助攻": 3,
+          "抢断": 2,
+          "盖帽": 1,
+          "失误": 3,
+          "犯规": 2,
+          "效率": 17,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/19d499c998d608347e5b8bb5bf3134dc",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/20009e5a5001834823481772114/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/20009e5a5001834823481772114/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "抢断",
+          "highlightCount": 11,
+          "clips": [
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/20009e5a5001834823481772114/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/20009e5a5001834823481772114/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/45fe71685001834823485185684/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/45fe71685001834823485185684/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/fff3251d5001834823484478120/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/fff3251d5001834823484478120/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "盖帽",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e49f57a25001834823487389121/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e49f57a25001834823487389121/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/91f7074c5001834823479338595/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/91f7074c5001834823479338595/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/2fc8ee8b5001834823535975846/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/2fc8ee8b5001834823535975846/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/82a885055001834823489500686/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/82a885055001834823489500686/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/c9c3d45f5001834823480382096/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/c9c3d45f5001834823480382096/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/460f74bf5001834823485193730/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/460f74bf5001834823485193730/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/89e2af915001834823489838774/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/89e2af915001834823489838774/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/008594fb5001834823491260842/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/008594fb5001834823491260842/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "谢斌",
+          "userId": 3607595,
+          "得分": 10,
+          "篮板": 6,
+          "助攻": 4,
+          "抢断": 3,
+          "盖帽": 0,
+          "失误": 4,
+          "犯规": 1,
+          "效率": 12,
+          "avatarUrl": "https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoFGKyniaLjSyib2uoOshXkPeZlAChm2MaiaL0WGc5Np9ThqK8ttvDeAZCL2MtRqDicFqBHQZ52v0VicSQ/132",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b81322035001834823490443956/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b81322035001834823490443956/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 12,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b81322035001834823490443956/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b81322035001834823490443956/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3107c85d5001834823488307503/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3107c85d5001834823488307503/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/f6161d245001834823477291483/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/f6161d245001834823477291483/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e49f6d735001834823487389669/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e49f6d735001834823487389669/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5b2275001834823483171789/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5b2275001834823483171789/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/3ce7c8855001834823488837062/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/3ce7c8855001834823488837062/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/809d704d5001834823489443985/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/809d704d5001834823489443985/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/82a885055001834823489500686/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/82a885055001834823489500686/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/6154561c5001834823482278024/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/6154561c5001834823482278024/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "抢断",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/e4410b3f5001834823487332265/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/e4410b3f5001834823487332265/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/0085999d5001834823491260970/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/0085999d5001834823491260970/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "助攻",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/063488495001834823477962717/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/063488495001834823477962717/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "陈汉宗",
+          "userId": 4391795,
+          "得分": 4,
+          "篮板": 1,
+          "助攻": 0,
+          "抢断": 0,
+          "盖帽": 0,
+          "失误": 3,
+          "犯规": 8,
+          "效率": -3,
+          "avatarUrl": "https://www.woaoo.net/upload/bskt/player/headPath/20210730/a9e7e5a1ff95412cbc48cc73facd9944.png",
+          "首发": false,
+          "team": "魔紫仙境1009",
+          "highlightUrl": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5b2275001834823483171789/playlist.f9.mp4",
+          "highlightCover": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5b2275001834823483171789/coverBySnapshot/coverBySnapshot_10_0.jpg",
+          "highlightName": "2分命中",
+          "highlightCount": 2,
+          "clips": [
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/abf5b2275001834823483171789/playlist.f9.mp4",
+              "duration": 12.1,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/abf5b2275001834823483171789/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            },
+            {
+              "name": "2分命中",
+              "url": "https://videoplayys.woaoocdn.com/8d5a10f0vodcq1317148588/b45245f55001834823537015090/playlist.f9.mp4",
+              "duration": 12.0,
+              "coverUrl": "https://videoplayys.woaoocdn.com/6443fe98vodtranscq1317148588/b45245f55001834823537015090/coverBySnapshot/coverBySnapshot_10_0.jpg"
+            }
+          ]
+        },
+        {
+          "球员": "陈渊源",
+          "userId": 7676548,
+          "得分": 0,
+          "篮板": 0,
+          "助攻": 0,
+          "抢断": 0,
+          "盖帽": 0,
+          "失误": 0,
+          "犯规": 0,
+          "效率": 0,
+          "avatarUrl": "https://www.woaoo.net/upload/__qiniu_transfer__/1c77fa1db9d788e6c1abee11fbf156a0",
+          "首发": false,
+          "team": "魔紫仙境1009"
+        },
+        {
+          "球员": NaN,
+          "userId": 0,
+          "得分": 0,
+          "篮板": 0,
+          "助攻": 0,
+          "抢断": 0,
+          "盖帽": 0,
+          "失误": 1,
+          "犯规": 0,
+          "效率": -1,
+          "avatarUrl": "https://www.woaoo.net/nan",
+          "首发": false,
+          "team": "魔紫仙境1009"
+        }
+      ],
+      "ourTeamStats": {
+        "得分": 148,
+        "两分命中率": 50.4,
+        "三分命中率": 23.8,
+        "篮板": 82,
+        "前板": 34,
+        "后板": 48,
+        "助攻": 45,
+        "抢断": 21,
+        "盖帽": 8,
+        "失误": 23,
+        "犯规": 34,
+        "罚球": "0/9",
+        "罚球命中率": 0.0
+      },
+      "oppTeamStats": {
+        "得分": 151,
+        "两分命中率": 47.5,
+        "三分命中率": 39.4,
+        "篮板": 80,
+        "前板": 27,
+        "后板": 53,
+        "助攻": 24,
+        "抢断": 10,
+        "盖帽": 3,
+        "失误": 21,
+        "犯规": 31,
+        "罚球": "0/10",
+        "罚球命中率": 0.0
+      },
+      "playbackUrl": null,
+      "highlightUrl": null,
+      "coverUrl": null,
+      "partName": null
     }
   ],
   "topPlayers": [
@@ -42372,10 +44375,10 @@
     },
     {
       "球员": "吴金潮",
-      "得分": 308,
-      "篮板": 101,
-      "助攻": 43,
-      "抢断": 12
+      "得分": 359,
+      "篮板": 115,
+      "助攻": 54,
+      "抢断": 15
     },
     {
       "球员": "黄琪彭",
@@ -42386,9 +44389,9 @@
     },
     {
       "球员": "廖宗贤",
-      "得分": 155,
-      "篮板": 138,
-      "助攻": 48,
+      "得分": 162,
+      "篮板": 141,
+      "助攻": 49,
       "抢断": 16
     },
     {
@@ -42399,32 +44402,32 @@
       "抢断": 15
     },
     {
+      "球员": "卢庆贤",
+      "得分": 124,
+      "篮板": 130,
+      "助攻": 15,
+      "抢断": 7
+    },
+    {
+      "球员": "张加洪",
+      "得分": 117,
+      "篮板": 54,
+      "助攻": 10,
+      "抢断": 11
+    },
+    {
       "球员": "谢斌",
       "得分": 112,
       "篮板": 33,
       "助攻": 14,
       "抢断": 6
-    },
-    {
-      "球员": "卢庆贤",
-      "得分": 110,
-      "篮板": 116,
-      "助攻": 11,
-      "抢断": 5
-    },
-    {
-      "球员": "郑民",
-      "得分": 103,
-      "篮板": 40,
-      "助攻": 12,
-      "抢断": 5
     }
   ],
-  "gameCount": 26,
+  "gameCount": 27,
   "wins": 10,
-  "losses": 16,
+  "losses": 17,
   "teamName": "中铁元湾篮球队",
-  "updatedAt": "2026-10-09 08:46",
+  "updatedAt": "2026-10-09 17:03",
   "perspectiveTeams": [
     {
       "label": "中铁元湾",
@@ -42451,7 +44454,7 @@
     "default": "5",
     "seasonMinDate": "2026-05-01",
     "seasonYear": null,
-    "fetched": 26
+    "fetched": 27
   },
   "bgm": {
     "enabled": true,
@@ -42461,7 +44464,7 @@
   },
   "share": {
     "title": "中铁元湾篮球队 · 数据看板",
-    "description": "近26场 10胜16负 · 胜率38% · 比分走势、回放与球员数据",
+    "description": "近27场 10胜17负 · 胜率37% · 比分走势、回放与球员数据",
     "image": "https://jankinlee2001.github.io/zhongtie-yuanwan-stats/assets/share.jpg",
     "url": "https://jankinlee2001.github.io/zhongtie-yuanwan-stats/"
   }
